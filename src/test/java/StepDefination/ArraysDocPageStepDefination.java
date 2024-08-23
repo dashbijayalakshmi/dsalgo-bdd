@@ -21,13 +21,13 @@ public class ArraysDocPageStepDefination {
 		this.arraysdocpage=testcontextsetup.pageobjectmanager.getArrayDocPage();
 		this.landingpage=testcontextsetup.pageobjectmanager.getLandingpageobjects();
 	}
-	@Given("User Clicks GetStated button of Arrays pane.")
+	@And("User Clicks GetStated button of Arrays pane.")
 	public void user_clicks_get_stated_button_of_pane() {
 		arraysdocpage.click_getstarted();
 		Assert.assertTrue(arraysdocpage.topic_display());
 	}
 
-	@When("Arrays page is displayed with Topics covered.")
+	@Then("Arrays page is displayed with Topics covered.")
 	public void page_is_displayed_with_topics_covered(DataTable Array_topics) {
 	    List<String>Expected_list=Array_topics.asList();
 	    System.out.println("expected list: "+Expected_list);

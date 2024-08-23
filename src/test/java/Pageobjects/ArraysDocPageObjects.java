@@ -20,6 +20,7 @@ private By ApplicationsOfArray=By.linkText("Applications of Array");
 private By tryhere=By.linkText("Try here>>>");
 public ArraysDocPageObjects(WebDriver driver) {
 	this.driver=driver;
+	
 }
 public void click_getstarted() {
 	driver.findElement(Array_getstart).click();
