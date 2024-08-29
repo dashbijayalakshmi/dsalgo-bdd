@@ -37,26 +37,27 @@ Feature: Validate Tree module features
     When The user clicks Overview of Trees link present under topics covered
     Then The user should be directed to Overview of Trees page
 
-  #@Tree
-  #Scenario: Validate Try Here panel of Overview of Trees page
-    #Given The user is on the Overview of Trees page
-    #When User clicks Try Here button
-    #Then The user should be redirected to a page having an tryEditor with a Run button to test
+  @Tree
+  Scenario: Validate Try Here panel of Overview of Trees page
+    Given The user is on the Overview of Trees page
+    When User clicks Try Here button
+    Then The user should be redirected to a page having an tryEditor with a Run button to test
+
+  @Tree
+  Scenario: Verify valid python code
+    Given User is on the Try Editor page of Overview of Trees section
+    When The user writes valid Python code
+    And Click on Run button
+    Then User sees output in the output panel
+    
 #
-  #@Tree
-  #Scenario: Verify valid python code
-    #Given User is on the Try Editor page
-    #When The user writes valid Python code
-    #And Click on Run button
-    #Then User is see output in the output panel
-#
-  #@Tree
-  #Scenario: Verify invalid python code
-    #Given User is on the Try Editor page
-    #When The user writes invalid Python code
-    #And Click on Run button
-    #Then User gets error
-    #And An Alert box is dispalyed
+  @Tree
+  Scenario: Verify invalid python code
+    Given User is already on the Try Editor page
+    When The user writes invalid Python code
+    And Click on Run button to run invalid code
+    Then User gets error alert box
+    
 #
   #@Tree
   #Scenario: Verify that an alert box is closed when clicked on button
