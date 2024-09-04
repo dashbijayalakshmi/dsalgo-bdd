@@ -6,12 +6,7 @@ Feature: Validate Tree module features
     Then User enters home page.
     And Clicks on Get Started button on the Tree introduction panel
 
-  #@Tree
-  #Scenario: Open Tree Module page
-    #Given User has logged in
-    #When User clicks on Get Started button on the Tree introduction panel
-    #Then Tree details page opens up
-
+ 
   @Tree
   Scenario Outline: Verify required topics are covered on Tree page
     Given User is on the Tree module page
@@ -50,25 +45,18 @@ Feature: Validate Tree module features
     And Click on Run button
     Then User sees output in the output panel
     
-#
+
   @Tree
-  Scenario: Verify invalid python code
+  Scenario: Verify running an invalid python code gives an error
     Given User is already on the Try Editor page
     When The user writes invalid Python code
     And Click on Run button to run invalid code
-    Then User gets error alert box
+    Then User gets error alert box 
     
-#
-  #@Tree
-  #Scenario: Verify that an alert box is closed when clicked on button
-    #Given User has run invalid code
-    #When USer clicks ok on the alert popup after running invalid code
-    #Then Alert popup box is closed
-    #And User is still on the Try Editor page
-#
-  #@Tree
-  #Scenario: Go back to Overview of Trees page from Try Try Editor page
-    #Given User is on the Try Eiotr page of Overview of Trees section
-    #When User clicks on the back arrow
-    #Then It should redirect to Overview of Trees page
-    #And Topics covered section is displayed on the left
+    
+  @Tree
+  Scenario: Go back to Overview of Trees page from Try Try Editor page
+    Given User is on the Try Eiotr page of Overview of Trees section
+    When User clicks on the back arrow
+    Then It should redirect to Overview of Trees page
+    And Topics covered section is displayed on the left

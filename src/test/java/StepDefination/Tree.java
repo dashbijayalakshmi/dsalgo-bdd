@@ -154,51 +154,34 @@ public void user_gets_error_alert_box() {
 }
 
 
-@Given("User has run invalid code")
-public void user_has_run_invalid_code() {
-    
-    
-}
 
-@When("USer clicks ok on the alert popup after running invalid code")
-public void u_ser_clicks_ok_on_the_alert_popup_after_running_invalid_code() {
-    
-    
-}
-
-@Then("Alert popup box is closed")
-public void alert_popup_box_is_closed() {
-    
-    
-}
-
-@Then("User is still on the Try Editor page")
-public void user_is_still_on_the_try_editor_page() {
-    
-    
-}
 
 @Given("User is on the Try Eiotr page of Overview of Trees section")
 public void user_is_on_the_try_eiotr_page_of_overview_of_trees_section() {
-    
-    
+		treepageobj.click_overview_of_tree();
+		treepageobj.click_TryHere_from_OverviewOfTrees();
+		System.out.println("User is on the Try Editor page of Overview of Trees section");      
 }
 
 @When("User clicks on the back arrow")
 public void user_clicks_on_the_back_arrow() {
-    
+	treepageobj.goback_frmTryeditor();
     
 }
 
 @Then("It should redirect to Overview of Trees page")
 public void it_should_redirect_to_overview_of_trees_page() {
-    
+	String actualtitle = landingpage.get_Title();
+	String expectedtitle="Overview of Trees";
+	assertEquals(expectedtitle,actualtitle);
+	System.out.println("User is on the" +expectedtitle+ "page");
     
 }
 
 @Then("Topics covered section is displayed on the left")
 public void topics_covered_section_is_displayed_on_the_left() {
-    
+	treepageobj.contents_on_ootpage();
+	
     
 }
 

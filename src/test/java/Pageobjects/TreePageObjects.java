@@ -22,6 +22,7 @@ public class TreePageObjects {
 	private By Editor_input_box_OverviewofTrees=By.xpath("//div[@class='input']");
 	private By run_OverviewofTrees=By.xpath("//form/button[text()='Run']");
 	private By output_verviewofTrees=By.id("output");
+	private By content_oot=By.id("content");
 	
 	//private By overviewoftree_page=By.xpath("//div/strong/p[@class='bg-secondary text-white']");
 	
@@ -96,6 +97,21 @@ public class TreePageObjects {
 		String alert_message=alert.getText();
 		System.out.println("Error occured is: " +alert_message);
         alert.accept();
+	}
+	
+	public void goback_frmTryeditor()
+	{
+		driver.navigate().back();
+	}
+	public void contents_on_ootpage()
+	{
+		boolean content=driver.findElement(content_oot).isDisplayed();
+		if (content)
+			{
+			System.out.println("Topics Covered under Tree sections are present on left side of the screen");
+			}
+		
+			
 	}
 }
 
