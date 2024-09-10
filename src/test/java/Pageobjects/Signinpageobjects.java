@@ -41,8 +41,12 @@ public class Signinpageobjects {
 		driver.findElement(signin).click();
 		
 	}
-	public void enter_username(String string, String string1) {
+	public void enter_username(String string) {
 		driver.findElement(username).sendKeys(string);
+		
+
+	}
+	public void enter_password(String string1) {
 		driver.findElement(password).sendKeys(string1);
 
 	}

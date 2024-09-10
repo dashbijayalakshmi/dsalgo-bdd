@@ -2,7 +2,9 @@ Feature: Verify Arrays page
 
   Background: Verify loginpage Signin page
     Given User clicks Sign in link.
-    When User enters Username and password and clicks login button.
+    When User enters Username from given sheetname "Sheet2" rownumber 2 and columnumber 0 
+    And User enter password from given sheetname "Sheet2" rownumber 2 and columnumber 1 
+    Then User clicks login button
     And User Clicks GetStated button of Arrays pane.
     Then Arrays page is displayed with Topics covered.
       | Arrays in Python          |
