@@ -11,6 +11,7 @@ Feature: Verify Arrays page
       | Arrays Using List         |
       | Basic Operations in Lists |
       | Applications of Array     |
+      
 
   @SmokeTest
   Scenario Outline: Verify the Arrays in Python Topics
