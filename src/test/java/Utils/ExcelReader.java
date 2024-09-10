@@ -15,7 +15,6 @@ public class ExcelReader {
 	
 		private static String excelFilePath = "testdata/dsalgo.xlsx";
 
-
 		public static String getCellValue(XSSFCell cell) {
 			switch (cell.getCellType()) {
 			case STRING:
