@@ -36,6 +36,7 @@ public class DataStructureStepDefination {
 	@Then("Click Run button and capture the output")
 	public void Run_capture() {
 		System.out.println(datastructpage.Output());
+		
 	}
 	
 	}

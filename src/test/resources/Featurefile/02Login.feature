@@ -6,6 +6,7 @@ Feature: Verify Login page
     And User enter password from given sheetname "Sheet2" rownumber 1 and columnumber 1 
     Then User clicks login button
     
+    
   @SmokeTest
     Scenario Outline: Verify invalid loginpage 
     Given User clicks Sign in link.

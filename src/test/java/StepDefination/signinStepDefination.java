@@ -31,7 +31,7 @@ public class signinStepDefination {
    public void user_enter_password_from_given_sheetname_rownumber_and_columnumber(String sheetname, Integer rownumber, Integer columnumber) {
 	   String newPassword=ExcelReader.getExcelValue(sheetname, rownumber, columnumber);
 	   signinpage.enter_password(newPassword);
-	   
+	  
    }
 
    @Then("User clicks login button")
