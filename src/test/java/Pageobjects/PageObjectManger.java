@@ -9,6 +9,7 @@ public Signinpageobjects signinpage;
 public DataStructPage datastructpage;
 public ArraysDocPageObjects arraysdocpage;
 public TreePageObjects treepageobj;
+public Run_PythonCodes runpythoncode;
 public PageObjectManger(WebDriver driver) {
 	this.driver=driver;
 }
@@ -29,5 +30,11 @@ public Signinpageobjects getSigninpageobjects() {
 public TreePageObjects gettreepageobj() {
 	treepageobj=new TreePageObjects(driver);
 	return treepageobj;
+}
+public Run_PythonCodes getruncodeobj()
+{
+	 runpythoncode=new Run_PythonCodes(driver);
+	 return runpythoncode;
+	
 }
 }

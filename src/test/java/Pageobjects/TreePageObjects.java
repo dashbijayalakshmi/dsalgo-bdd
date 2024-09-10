@@ -23,6 +23,8 @@ public class TreePageObjects {
 	private By run_OverviewofTrees=By.xpath("//form/button[text()='Run']");
 	private By output_verviewofTrees=By.id("output");
 	private By content_oot=By.id("content");
+	private By terminologies=By.linkText("Terminologies");
+	private By TryHereBtn_Terminologies=By.xpath("//a[@href='/tryEditor' and text()='Try here>>>']");
 	
 	//private By overviewoftree_page=By.xpath("//div/strong/p[@class='bg-secondary text-white']");
 	
@@ -31,6 +33,7 @@ public class TreePageObjects {
 	public 	TreePageObjects(WebDriver driver) {
 		this.driver=driver;
 	}
+	
 	public void click_tree_getstarted()
 	{
 		driver.findElement(Tree_Get_Started).click();
@@ -110,8 +113,17 @@ public class TreePageObjects {
 			{
 			System.out.println("Topics Covered under Tree sections are present on left side of the screen");
 			}
-		
 			
 	}
+	public void click_terminologies() {
+		driver.findElement(terminologies).click();
+		
+	}
+	
+public void click_tryHere_on_Terminologies()
+{
+	driver.findElement(TryHereBtn_Terminologies).click();
+}
+	
 }
 

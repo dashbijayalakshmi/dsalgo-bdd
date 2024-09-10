@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
+import Pageobjects.Run_PythonCodes;
 import Pageobjects.TreePageObjects;
 import Pageobjects.landingpageobjects;
 import Utils.TestContextSetup;
@@ -20,19 +21,19 @@ WebDriver driver;
 TestContextSetup testcontextsetup;
 TreePageObjects treepageobj;
 landingpageobjects landingpage;
+Run_PythonCodes runpythoncode;
 public Tree(TestContextSetup testcontextsetup)
 {
 	this.testcontextsetup=testcontextsetup;
 	this.treepageobj=testcontextsetup.pageobjectmanager.gettreepageobj();
 	this.landingpage=testcontextsetup.pageobjectmanager.getLandingpageobjects();
+	this.runpythoncode=testcontextsetup.pageobjectmanager.getruncodeobj();
 }
-
-
+	
 @And("Clicks on Get Started button on the Tree introduction panel")
 public void user_clicks_get_started_button_of_tree_panel() {
 	treepageobj.click_tree_getstarted();   
 }
-
 
 @Given("User is on the Tree module page")
 public void user_is_on_the_tree_module_page() {
@@ -55,6 +56,7 @@ public void regiquered_list_of_topics_covered_should_be_displayed(io.cucumber.da
     System.out.println("Actual List is:"+treepageobj.tree_topicscovered_list());
     Assert.assertEquals(treepageobj.tree_topicscovered_list(), Expected_list);  
 }
+
 
 @Given("The user is in the Tree page after loggedin")
 public void the_user_is_in_the_tree_page_after_loggedin() {
@@ -113,20 +115,20 @@ public void user_is_on_the_try_editor_page() {
 
 @When("The user writes valid Python code")
 public void the_user_writes_valid_python_code() {
- treepageobj.validcode_editor_oot();
+	runpythoncode.validcode_editor();
  System.out.println("Valid Python code entered ");
     
 }
 
 @And("Click on Run button")
 public void click_on_run_button() {
-	treepageobj.run_OverviewOfTree();
+	runpythoncode.run_button();
 }
 
 @Then("User sees output in the output panel")
 public void user_is_see_output_in_the_output_panel() {
 	
-	treepageobj.Ouptput_OverviewOfTree();
+	runpythoncode.Ouptput_ValidCode();
 }
 
 @Given("User is already on the Try Editor page")
@@ -138,23 +140,20 @@ public void user_is_alreadyon_the_try_editor_page() {
 
 @When("The user writes invalid Python code")
 public void the_user_writes_invalid_python_code() {
-	treepageobj.invalid_editor_oot();      
+	runpythoncode.invalidcode_editor();      
 }
 
 @And("Click on Run button to run invalid code")
 public void click_on_run_button_forInvalidCode() {
-	treepageobj.run_OverviewOfTree();
+	runpythoncode.run_button();
 }
 
 @Then("User gets error alert box")
 public void user_gets_error_alert_box() {
     
-    treepageobj.error_alert_oot();
+	runpythoncode.error_alert();
     
 }
-
-
-
 
 @Given("User is on the Try Eiotr page of Overview of Trees section")
 public void user_is_on_the_try_eiotr_page_of_overview_of_trees_section() {
@@ -181,8 +180,125 @@ public void it_should_redirect_to_overview_of_trees_page() {
 @Then("Topics covered section is displayed on the left")
 public void topics_covered_section_is_displayed_on_the_left() {
 	treepageobj.contents_on_ootpage();
+}
 	
-    
+
+	
+	@Given("The user is in the Tree page after login")
+	public void the_user_is_in_the_tree_page_after_login() {
+		String actual_title=landingpage.get_Title();
+		String expected_title="Tree";
+		assertEquals(expected_title,actual_title);
+		System.out.println("User is on the " +actual_title+ "page");    
+	}
+
+	@When("The user clicks Terminologies link present under topics covered")
+	public void the_user_clicks_terminologies_link_present_under_topics_covered() {
+	    treepageobj.click_terminologies();	    
+	}
+
+	@Then("The user should be directed to Terminologies page")
+	public void the_user_should_be_directed_to_terminologies_page() {
+	    String actual_title=landingpage.get_Title();
+	    String expected_title="Terminologies";
+	    assertEquals(expected_title,actual_title);
+	    System.out.println("User is on the " +actual_title+ " Page");
+	    
+	}
+
+	@Given("The user is on the Terminologies page")
+	public void the_user_is_on_the_terminologies_page() {
+		treepageobj.click_terminologies();   
+	}
+
+	@When("User clicks Try Here button on the Terminologies page")
+	public void user_clicks_try_here_button_on_the_terminologies_page() {
+	    
+	    treepageobj.click_tryHere_on_Terminologies();
+	}
+
+	@Then("The user should be redirected to a Terminologies page having an tryEditor with a Run button to test")
+	public void the_user_should_be_redirected_to_a_terminologies_page_having_an_try_editor_with_a_run_button_to_test() {
+	    String actual_tit=landingpage.get_Title();
+	    String Expected_tit="Assessment";
+	    assertEquals(Expected_tit,actual_tit);
+	    System.out.println("User is on the " +actual_tit+ " Page of Terminologies section");    
+	}
+
+	@Given("User is on the Try Editor page of Terminologies section")
+	public void user_is_on_the_try_editor_page_of_terminologies_section() {
+		treepageobj.click_terminologies();
+		treepageobj.click_tryHere_on_Terminologies();
+	}
+
+	@When("The user writes valid Python code under Terminologies section")
+	public void the_user_writes_valid_python_code_under_terminologies_section() {
+		runpythoncode.validcode_editor();
+		 System.out.println("Valid Python code entered "); 
+	    
+	}
+
+	@When("Click on Run button under Terminologies section")
+	public void click_on_run_button_under_terminologies_section() {
+		runpythoncode.run_button();
+	    
+	}
+
+	@Then("User sees output in the output panel under Terminologies section")
+	public void user_sees_output_in_the_output_panel_under_terminologies_section() {
+		runpythoncode.Ouptput_ValidCode();
+	    
+	}
+
+	@Given("User is already on the Try Editor page under Terminologies section")
+	public void user_is_already_on_the_try_editor_page_under_terminologies_section() {
+		treepageobj.click_terminologies();
+		treepageobj.click_tryHere_on_Terminologies();
+	    
+	}
+
+	@When("The user writes invalid Python code under Terminologies section")
+	public void the_user_writes_invalid_python_code_under_terminologies_section() {
+		runpythoncode.invalidcode_editor();
+	    
+	}
+
+	@When("Click on Run button to run invalid code under Terminologies section")
+	public void click_on_run_button_to_run_invalid_code_under_terminologies_section() {
+		runpythoncode.error_alert();
+	    
+	}
+
+	@Then("User gets error alert box under Terminologies section")
+	public void user_gets_error_alert_box_under_terminologies_section() {
+		runpythoncode.error_alert();
+	    
+	}
+
+	@Given("User is on the Try Eiotr page of Terminologies section")
+	public void user_is_on_the_try_eiotr_page_of_terminologies_section() {
+	    
+	    
+	}
+
+	@When("User clicks on the back arrow under Terminologies section")
+	public void user_clicks_on_the_back_arrow_under_terminologies_section() {
+	    
+	    
+	}
+
+	@Then("It should redirect to Terminologies page")
+	public void it_should_redirect_to_terminologies_page() {
+	    
+	    
+	}
+
+	@Then("Topics covered section is displayed on the left under Terminologies section")
+	public void topics_covered_section_is_displayed_on_the_left_under_terminologies_section() {
+	    
+	    
+	}
+	
 }
 
-}
+
