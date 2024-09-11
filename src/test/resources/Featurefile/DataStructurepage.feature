@@ -1,7 +1,9 @@
 Feature: DsAlgo Landing page
 Background:
 Given User clicks Sign in link.
-When User enters Username and password and clicks login button.
+ When User enters Username from given sheetname "Sheet2" rownumber 2 and columnumber 0 
+ And User enter password from given sheetname "Sheet2" rownumber 2 and columnumber 1 
+ Then User clicks login button
 Then User enters home page.
 @Monkey
 Scenario Outline: Verify DataStructure page
