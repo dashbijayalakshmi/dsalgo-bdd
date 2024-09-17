@@ -9,7 +9,7 @@ public Signinpageobjects signinpage;
 public DataStructPage datastructpage;
 public ArraysDocPageObjects arraysdocpage;
 
-public QueuePageObjects queuepage;
+//public QueuePageObjects queuepage;
 
 
 public TreePageObjects treepageobj;
@@ -33,9 +33,9 @@ public Signinpageobjects getSigninpageobjects() {
 	return arraysdocpage;
 }
 
-public QueuePageObjects getQueuePage() {
-	queuepage=new QueuePageObjects(driver);
-	return queuepage;
+//public QueuePageObjects getQueuePage() {
+//	queuepage=new QueuePageObjects(driver);
+//	return queuepage;
 
 public TreePageObjects gettreepageobj() {
 	treepageobj=new TreePageObjects(driver);

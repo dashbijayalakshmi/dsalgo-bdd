@@ -2,8 +2,10 @@ Feature: Validate Tree module features
 
   Background: 
     Given User clicks Sign in link.
-    When User enters Username and password and clicks login button.
-    Then User enters home page.
+    When User enters Username from given sheetname "Sheet2" rownumber 1 and columnumber 0
+    And User enter password from given sheetname "Sheet2" rownumber 1 and columnumber 1 
+    Then User clicks login button
+    And User enters home page.
     And Clicks on Get Started button on the Tree introduction panel
 
   @Tree
