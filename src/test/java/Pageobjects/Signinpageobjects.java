@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 
 public class Signinpageobjects {
 	private By register_link=By.linkText("Register");
@@ -15,7 +16,7 @@ public class Signinpageobjects {
 	private By dropdownlist=By.cssSelector("div.dropdown-menu");
 	private By elements=By.cssSelector("a");
 	private By username=By.cssSelector("#id_username");
-	private By password=By.cssSelector("#id_password");
+	private By password=By.id("id_password");
 	private By login_btn=By.xpath("//input[@value='Login']");
 	private By alert_message=By.xpath("//div[@role='alert']");
 	private By error_invalid_userPass=By.xpath("//div[contains(text(), 'Invalid Username and Password')]");
@@ -74,12 +75,17 @@ public class Signinpageobjects {
 	public void error_username_req()
 	{
 		String message=driver.findElement(username).getAttribute("validationMessage");
-		System.out.println("Error - "+message+ " displayed when username is blank");
+		boolean username_error_dispalyed=message.matches("Please fill out this field.");
+		Assert.assertTrue(username_error_dispalyed, "FAILED Error doesn't exist");
+		System.out.println("PASSED Error - "+message+ " displayed when username is blank");
+		
 	}
 	public void error_password_req()
 	{
-		String message=driver.findElement(password).getAttribute("validationMessage");
-		System.out.println("Error - "+message+ " displayed when password is blank");
+		String message1=driver.findElement(password).getAttribute("validationMessage");
+		boolean password_error_displayed=message1.matches("Please fill out this field.");
+		Assert.assertTrue(password_error_displayed, "FAILED Error doesn't exist");
+		System.out.println("PASSED Error - "+message1+ " displayed when password is blank");
 	}
 	public void error_invalid_userandpass()
 	{
