@@ -5,3 +5,4 @@ target/
 .settings/
 test-output/
 /bin/
+allure-results
