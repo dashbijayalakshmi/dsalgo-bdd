@@ -8,6 +8,7 @@ public landingpageobjects landingpage;
 public Signinpageobjects signinpage;
 public DataStructPage datastructpage;
 public ArraysDocPageObjects arraysdocpage;
+public homepage_pageobject homepage;
 
 //public QueuePageObjects queuepage;
 
@@ -52,4 +53,10 @@ public RegistrationPageObj getregpageobj()
 		registrationpage=new RegistrationPageObj(driver);
 		return registrationpage;
 	}
+public homepage_pageobject gethomepageobj()
+{
+	homepage=new homepage_pageobject(driver);
+	return homepage;
+	
+}
 }
