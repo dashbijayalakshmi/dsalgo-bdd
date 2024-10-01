@@ -14,6 +14,7 @@ public class Signinpageobjects {
 	private By signin=By.linkText("Sign in");
 	private By datastructure=By.linkText("Data Structures");
 	private By dropdownlist=By.cssSelector("div.dropdown-menu");
+	
 	private By elements=By.cssSelector("a");
 	private By username=By.cssSelector("#id_username");
 	private By password=By.id("id_password");
@@ -30,18 +31,29 @@ public class Signinpageobjects {
 		WebElement register=driver.findElement(register_link);
 		WebElement sign_in=driver.findElement(signin);
 		return register.isDisplayed() && sign_in.isDisplayed();
-	}public List<String> datastructure() {
-		driver.findElement(datastructure).click();
-		List<String>ListData=new ArrayList<>();
-		WebElement ddlist=driver.findElement(dropdownlist);
-		List<WebElement>listitems=ddlist.findElements(elements);
-		for(WebElement datastructure:listitems) {
-			String text=datastructure.getText();
-			ListData.add(text);
-		}
-		return ListData;
-		
 	}
+	
+//	public void click_dropdownlist()
+//	{
+//		//driver.findElement(dropdown_arrow).click();
+//		boolean dropdown=driver.findElement(dropdown_arrow).isDisplayed();
+//		Assert.assertTrue(dropdown, "Dropdown list is not present");
+//		System.out.println("Dropdown field is present");
+//	}
+//	
+//	
+//	public List<String> datastructure() {
+//		driver.findElement(datastructure).click();
+//		List<String>ListData=new ArrayList<>();
+//		WebElement ddlist=driver.findElement(dropdownlist);
+//		List<WebElement>listitems=ddlist.findElements(elements);
+//		for(WebElement datastructure:listitems) {
+//			String text=datastructure.getText();
+//			ListData.add(text);
+//		}
+//		return ListData;
+//		
+//	}
 	public void click_signin_link() {
 		driver.findElement(signin).click();
 		
