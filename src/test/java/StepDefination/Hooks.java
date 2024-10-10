@@ -34,7 +34,7 @@ public class Hooks {
 		Assert.assertTrue(landingpage.h1_ptag_getstarted());
 		landingpage.click_getstartbtn();
 		Assert.assertTrue(signinpage.regis_sign());
-		System.out.println(signinpage.datastructure()+" is displayed");
+		//System.out.println(signinpage.datastructure()+" is displayed");
 		}
 
 	
