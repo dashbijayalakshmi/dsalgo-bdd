@@ -8,14 +8,20 @@ public landingpageobjects landingpage;
 public Signinpageobjects signinpage;
 public DataStructPage datastructpage;
 public ArraysDocPageObjects arraysdocpage;
+
+public QueuePageObjects queuepage;
 public homepage_pageobject homepage;
 
 //public QueuePageObjects queuepage;
+public GraphPageObjects graphpage;
+
+//public TreePageObjects treepageobj;
+//public Run_PythonCodes runpythoncode;
+public RegistrationPageObj registrationpage; 
 
 
 public TreePageObjects treepageobj;
 public Run_PythonCodes runpythoncode;
-public RegistrationPageObj registrationpage; 
 
 public PageObjectManger(WebDriver driver) {
 	this.driver=driver;
@@ -34,6 +40,10 @@ public Signinpageobjects getSigninpageobjects() {
 	arraysdocpage=new ArraysDocPageObjects(driver);
 	return arraysdocpage;
 }
+public QueuePageObjects getQueuePage() {
+	queuepage=new QueuePageObjects(driver);
+	return queuepage;
+}	
 
 //public QueuePageObjects getQueuePage() {
 //	queuepage=new QueuePageObjects(driver);
@@ -47,6 +57,10 @@ public Run_PythonCodes getruncodeobj()
 {
 	 runpythoncode=new Run_PythonCodes(driver);
 	 return runpythoncode;
+
+	
+
+
 }
 public RegistrationPageObj getregpageobj()
 	{
@@ -58,5 +72,10 @@ public homepage_pageobject gethomepageobj()
 	homepage=new homepage_pageobject(driver);
 	return homepage;
 	
+
+}
+public GraphPageObjects getGraphPage() {
+	graphpage=new GraphPageObjects(driver);
+	return graphpage;
 }
 }
