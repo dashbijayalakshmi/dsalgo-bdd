@@ -7,7 +7,7 @@ public WebDriver driver;
 public landingpageobjects landingpage;
 public Signinpageobjects signinpage;
 public DataStructPage datastructpage;
-public ArraysDocPageObjects arraysdocpage;
+
 
 public QueuePageObjects queuepage;
 public homepage_pageobject homepage;
@@ -20,14 +20,12 @@ public GraphPageObjects graphpage;
 //public Run_PythonCodes runpythoncode;
 public RegistrationPageObj registrationpage; 
 
-
+public ArraysDocPageObjects arraysdocpage;
 public TreePageObjects treepageobj;
 public Run_PythonCodes runpythoncode;
-//public Linkedlistpageobject linkedlistpageobj;
-
-
- 
+public LinkedlistPageObject1 linkedlistpageobj;
 public StackPageObject stackpageobj;
+
 
 
 public PageObjectManger(WebDriver driver) {
@@ -93,4 +91,10 @@ public GraphPageObjects getGraphPage() {
 	graphpage=new GraphPageObjects(driver);
 	return graphpage;
 }
+public LinkedlistPageObject1 getlinkedlistpageobj() 
+{
+	linkedlistpageobj = new LinkedlistPageObject1(driver);
+	return linkedlistpageobj;
 }
+}
+

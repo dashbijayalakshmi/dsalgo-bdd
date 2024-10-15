@@ -6,6 +6,8 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.Assert;
 
 public class ArraysDocPageObjects {
 public WebDriver driver;
@@ -14,10 +16,16 @@ private By Array_getstart=By.xpath("//a[@href='array' and text()='Get Started']"
 private By array_list=By.cssSelector("ul a.list-group-item");
 private By topics_cov=By.xpath("//p[text()='Topics Covered']");
 private By Arrays_in_python=By.linkText("Arrays in Python");
+private By TryHere_Arraysinpython=By.xpath("//a[@href='/tryEditor' and text()='Try here>>>']");
+
+private By Editor_input_box_Arraysusinglist = By.xpath("//form[@id='answer_form']/div/div/div[1]/textarea");
+private By content_out=By.id("content");
+
 private By Arrays_Use_List=By.linkText("Arrays Using List");
 private By BasicOperations_Lists=By.linkText("Basic Operations in Lists");
 private By ApplicationsOfArray=By.linkText("Applications of Array");
-private By tryhere=By.linkText("Try here>>>");
+private By tryhere=/*By.xpath("Try here>>>")*/By.xpath("//a[@href='/tryEditor' and text()='Try here>>>']");
+private By PracticeQuestions = By.linkText("Practice Questions");
 public ArraysDocPageObjects(WebDriver driver) {
 	this.driver=driver;
 	
@@ -38,13 +46,85 @@ public List<String> List_arraysTopics() {
 	}
 	return ArrayNames;
 }
-public void clickArrayListLinks(String string) {
+/*public void clickArrayListLinks(String string) {
 	driver.findElement(By.linkText(string)).click();
 	
 }public void click_Tryhere_btn() {
 	driver.findElement(tryhere).click();
+}*/
+public List<String> arrays_topicscovered_list() {
+	List<String> ArraysTopics = new ArrayList<>();
+	List<WebElement> topics_Array = driver.findElements(array_list);
+	for (WebElement array_topics : topics_Array)
+	{
+		String arraystopics = array_topics.getText();
+		ArraysTopics.add(arraystopics);
+		
+	}
+	return ArraysTopics;
+}
+public void click_ArraysinPython() {
+	driver.findElement( Arrays_in_python).click();
+	
+}
+public void click_TryHere() {
+	driver.findElement(tryhere).click();
+	
+}
+public void click_TryHere_ArraysinPython() {
+	driver.findElement(TryHere_Arraysinpython).click();
+	
+}
+public void goback_frmTryeditor() {
+	driver.navigate().back();
+	
+}
+public void contents_on_outpage() {
+	boolean content=driver.findElement(content_out).isDisplayed();
+	if (content)
+		{
+		System.out.println("Topics Covered under Arrays sections are present on left side of the screen");
+		}
+		
+	
+}
+public void click_Arraysusinglist() {
+	driver.findElement(Arrays_Use_List).click();
+	
+}
+public void getPythonCode_from_excel(String string) {
+	WebElement invalidcode = driver.findElement(Editor_input_box_Arraysusinglist);
+	new Actions(driver).sendKeys(invalidcode, string).perform();
+}
+public void click_BasicOpertaionList() {
+	driver.findElement(BasicOperations_Lists).click();
+	
+}
+public void clickApplicationofArray() {
+  driver.findElement(ApplicationsOfArray).click();
+	
+}
+public void click_TryHereApplicationsofArray() {
+	
+	
+}
+public void click_PracticeQuestion() {
+	driver.findElement(PracticeQuestions).click();
+	
+}
+public void is_practiceQuestion_Displayed() {
+	boolean content = driver.getPageSource().contains("Practice Questions.....");
+	Assert.assertTrue(content, "Practice Questions Available");
+	
 }
 
-
-
+	
 }
+
+	
+	
+
+
+
+
+

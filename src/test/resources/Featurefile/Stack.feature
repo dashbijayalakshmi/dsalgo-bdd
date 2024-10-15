@@ -1,4 +1,3 @@
-@Stack
 Feature: Testing Stack page
  Background: 
     Given User clicks Sign in link.
