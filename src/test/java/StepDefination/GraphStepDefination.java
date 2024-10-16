@@ -59,13 +59,13 @@ public class GraphStepDefination {
 		graphpage.graphTopicsCovered();
 	}
 
-	@Then("Topics covered should be displayed")
-	public void topics_covered_should_be_displayed(io.cucumber.datatable.DataTable TreeTopics) 
-	{
-	    List<String>Expected_list=TreeTopics.asList();
-	    System.out.println("Expected List is:"+Expected_list);
-	    System.out.println("Actual List is:"+graphpage.graph_topicscovered_list());
-	    Assert.assertEquals(graphpage.graph_topicscovered_list(), Expected_list);  
+	@Then("Topics covered should be displayed in Graph page")
+	public void topics_covered_should_be_displayed(io.cucumber.datatable.DataTable GraphTopics) {
+		List<String> Expected_list = GraphTopics.asList();
+		List<String> Actual_list = graphpage.graph_topicscovered_list();
+		System.out.println("Expected List is:" + Expected_list);
+		System.out.println("Actual List is:" + Actual_list);
+		Assert.assertEquals(Expected_list, Actual_list, "List is not present");
 	}
 	
 	@Given("The user is in the Graph page after loggedin")
@@ -226,5 +226,30 @@ public class GraphStepDefination {
 		//System.out.println("User is on the" + expectedtitle + "page");
 
 	}
+	@Given("Navigated to any topics of the Graph")
+	public void navigated_to_any_topics_of_the_qraph() {
+		graphpage.graphRepresentation();
+	}
+	@When("The user clicks Practice Questions of Graph section")
+	public void the_user_clicks_practice_questions_of_graph_section() {
+		graphpage.PracticeQuestion();
+
+	}
+	@Then("Practice Question page should display on Graph")
+	public void practice_question_page_should_display_on_graph() {
+		String actual_tit1 = landingpage.get_Title();
+		String exp_tit1 = "Practice Questions";
+		Assert.assertEquals(exp_tit1, actual_tit1, "User wasn't naviagated to expected page");
+		System.out.println("User navigated to " + actual_tit1);
+
+	}
+	@Then("Sets of practice questions should be display on the Graph page")
+	public void sets_of_practice_questions_should_be_display_on_graph_page() {
+		graphpage.practiceQuestionDisplayed();
+
+	}
+
+	
+
 	
 }

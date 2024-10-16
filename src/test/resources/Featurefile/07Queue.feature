@@ -11,12 +11,12 @@ Feature: Verify Queue page
      @Queue
     Scenario Outline: Verify required topics are covered on Queue page
     Given User is on the Queue module page
-    When The user scroll downs to Topics covered section on the Graph page
-   # Then Topics covered should be displayed
-    # | Implementation of Queue in Python                 |
-    # |Implementation using collections.deque   |
-   # |Implementation using array |
-    #|Queue Operations  |
+    When The user scroll downs to Topics covered section on the Queue page
+    Then Topics covered should be displayed in Queue
+     | Implementation of Queue in Python       |
+     |Implementation using collections.deque   |
+     |Implementation using array               |
+     |Queue Operations                         |
     
   
      @Queue
@@ -153,4 +153,19 @@ Feature: Verify Queue page
     When User click on the back arrow of Queue
     Then It should redirect to Queue Operations page
     And Topics covered under Queue should be displayed on the left
+    
+     @Queue
+  Scenario: Validate Practice Questions of Tree section
+    Given The user is in the Queue page after loggedin
+    And Navigated to any topics of the Queue
+    When The user clicks Practice Questions of Queue section
+    Then Practice Question page should display
+
+  @Queue
+  Scenario: Validate id Practice Questions are visible on Practice Question Page
+    Given The user is in the Queue page after loggedin
+    And Navigated to any topics of the Queue
+    When The user clicks Practice Questions of Queue section
+    Then Sets of practice questions should be display on the page
+    
     

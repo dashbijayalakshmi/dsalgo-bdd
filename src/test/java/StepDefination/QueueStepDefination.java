@@ -40,6 +40,10 @@ public class QueueStepDefination {
 		queuepage.text(expectedText);
 		
 	}
+	@When("The user scroll downs to Topics covered section on the Queue page")
+	public void the_user_scroll_downs_to_topics_covered_section_on_the_queue_page() {
+		queuepage.queueTopicsCovered();
+	}
 
 	@When("User clicks on Implementation of Queue in Python")
 	public void user_clicks_on_implementation_of_queue_in_python() {
@@ -64,11 +68,14 @@ public class QueueStepDefination {
 	   
 	}
 	
-	/*@Then("User sees output in the output")
-	public void user_is_see_output_in_the_output_() {
-
-		runpythoncode.Ouptput_ValidCode();
-	}*/
+	@Then("Topics covered should be displayed in Queue")
+	public void topics_covered_should_be_displayed(io.cucumber.datatable.DataTable QueueTopics) {
+		List<String> Expected_list = QueueTopics.asList();
+		List<String> Actual_list = queuepage.queue_topicscovered_list();
+		System.out.println("Expected List is:" + Expected_list);
+		System.out.println("Actual List is:" + Actual_list);
+		Assert.assertEquals(Expected_list, Actual_list, "List is not present");
+	}
 	
 	@Given("The user enter invalid Python code from given sheetname {string} rownumber {int} and columnumber {int}")
 	public void user_enters_invalidcode(String sheetname, Integer rownumber , Integer columnumber) {
@@ -260,6 +267,29 @@ public class QueueStepDefination {
 		String expectedtitle = "Queue Operations";
 		assertEquals(expectedtitle, actualtitle);
 		//System.out.println("User is on the" + expectedtitle + "page");
+
+	}
+	
+	@Given("Navigated to any topics of the Queue")
+	public void navigated_to_any_topics_of_the_queue() {
+		queuepage.linkQueueOperations();
+	}
+	@When("The user clicks Practice Questions of Queue section")
+	public void the_user_clicks_practice_questions_of_Queue_section() {
+		queuepage.PracticeQuestion();
+
+	}
+	@Then("Practice Question page should display")
+	public void practice_question_page_should_open() {
+		String actual_tit1 = landingpage.get_Title();
+		String exp_tit1 = "Practice Questions";
+		Assert.assertEquals(exp_tit1, actual_tit1, "User wasn't naviagated to expected page");
+		System.out.println("User navigated to " + actual_tit1);
+
+	}
+	@Then("Sets of practice questions should be display on the page")
+	public void sets_of_practice_questions_should_be_available() {
+		queuepage.practiceQuestionDisplayed();
 
 	}
 	

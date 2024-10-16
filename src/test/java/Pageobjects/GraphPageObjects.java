@@ -26,7 +26,7 @@ public class GraphPageObjects {
 	private By tryHere=By.xpath("/html/body/div[2]/div/div[2]/a");
 	private By output=By.xpath("//*[@id=\"output\"]");
 	//**//
-	
+	private By PracticeQuestion = By.linkText("Practice Questions");
 	private By graphTopic=By.xpath("/html/body/div[2]/p[3]");
 	private By graphlistoftopics=By.cssSelector("a.list-group-item");
 	//private By Graph=By.linkText("Graph");
@@ -112,6 +112,14 @@ public class GraphPageObjects {
 		System.out.println("Error occured is: " + alert_message);
 		alert_popup.accept();
 	}
+	public void PracticeQuestion() {
+		driver.findElement(PracticeQuestion).click();
+	}
+	public void practiceQuestionDisplayed() {
+		boolean content = driver.getPageSource().contains("Practice Questions.....");
+		Assert.assertTrue(content, "No Practice Questions Available");
+	}
+	
 	
 
 }
