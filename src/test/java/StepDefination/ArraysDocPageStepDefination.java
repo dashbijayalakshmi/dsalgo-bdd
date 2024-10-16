@@ -28,33 +28,7 @@ public class ArraysDocPageStepDefination {
 		this.landingpage=testcontextsetup.pageobjectmanager.getLandingpageobjects();
 		this.runpythoncode=testcontextsetup.pageobjectmanager.getruncodeobj();
 	}
-	/*@And("User Clicks GetStated button of Arrays pane.")
-	public void user_clicks_get_stated_button_of_pane() {
-		arraysdocpage.click_getstarted();
-		Assert.assertTrue(arraysdocpage.topic_display());
-	}
-	
 
-	@Then("Arrays page is displayed with Topics covered.")
-	public void page_is_displayed_with_topics_covered(DataTable Array_topics) {
-	    List<String>Expected_list=Array_topics.asList();
-	    System.out.println("expected list: "+Expected_list);
-	    System.out.println("actaual list:"+arraysdocpage.List_arraysTopics());
-	    Assert.assertEquals(arraysdocpage.List_arraysTopics(),Expected_list);
-	}
-	@Given("User clicks {string}.")
-	public void click_arrays_in_python(String ArraysLinks) {
-		System.out.println("Title:"+landingpage.get_Title());
-		System.out.println(ArraysLinks+" This link ");
-		arraysdocpage.clickArrayListLinks(ArraysLinks);
-	}
-	@When("new page is displayed with [Try here>>>] button")
-	public void arrays_try_here_button() {
-		System.out.println("Title:"+landingpage.get_Title());
-		arraysdocpage.click_Tryhere_btn();
-	}
-
-}*/
 @And("Clicks on Get Started button on the Array Introduction panel")
 public void clicks_on_get_started_button_on_the_array_introduction_panel() {
 	arraysdocpage.click_getstarted();
@@ -435,10 +409,7 @@ public void user_click_on_run_button_on_arrays_page() {
 	runpythoncode.run_button();
 }
 
-/*@Then("The user gets error pop up box of Arrays page")
-public void the_user_gets_error_pop_up_box_of_arrays_page() {
-    
-}*/
+
 @Given("The User is on the Try Editor page of Applications of Array")
 public void the_user_is_on_the_try_editor_page_of_applications_of_array() {
 	arraysdocpage.clickApplicationofArray();

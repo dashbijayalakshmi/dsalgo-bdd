@@ -80,12 +80,7 @@ public class StackPageObject {
 		driver.findElement(TryHere_Operations_in_Stack).click();
 	}
 	
-	/*public void validcode_editor_out()
-	{
-		WebElement validcode_out=driver.findElement(Editor_input_box_operations_in_stack);
-		new Actions(driver).sendKeys(validcode_out,"print('Hello it is a Valid Python Code')").perform();
-		 
-	}*/
+	
 	public void run_OperationsinStack()
 	{
 		driver.findElement(run_stack).click();

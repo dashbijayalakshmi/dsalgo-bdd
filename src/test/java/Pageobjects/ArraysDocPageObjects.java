@@ -12,7 +12,6 @@ import org.testng.Assert;
 public class ArraysDocPageObjects {
 public WebDriver driver;
 private By Array_getstart=By.xpath("//a[@href='array' and text()='Get Started']");
-//private By Array_doc=By.xpath("Array");
 private By array_list=By.cssSelector("ul a.list-group-item");
 private By topics_cov=By.xpath("//p[text()='Topics Covered']");
 private By Arrays_in_python=By.linkText("Arrays in Python");

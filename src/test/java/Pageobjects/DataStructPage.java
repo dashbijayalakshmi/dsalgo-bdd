@@ -11,7 +11,7 @@ import org.testng.Assert;
 
 public class DataStructPage {
 private By Datastruct_Get_Started= By.xpath("//div/a[@href='data-structures-introduction' and text()='Get Started']");
-/*private By page=By.xpath("//h4[text()='Data Structures-Introduction']");*/
+
  private By datastruct_topics_covered = By.xpath("//div/p[@class='bg-secondary text-white']");
  private By datastruct_listoftopics = By.cssSelector("a.list-group-item");
  private By timecomplexity = By.linkText("Time Complexity");

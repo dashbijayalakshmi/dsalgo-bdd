@@ -16,11 +16,7 @@ import io.cucumber.java.en.*;
 
 public class DataStructureStepDefination {
 	public WebDriver driver;
-	/*public TestContextSetup testcontextsetup;
-	public DataStructPage datastructpage;
-	public DataStructureStepDefination(TestContextSetup testcontextsetup) {
-		this.testcontextsetup=testcontextsetup;
-		datastructpage=testcontextsetup.pageobjectmanager.getDataStructPage();*/
+	
 	TestContextSetup testcontextsetup;
 	DataStructPage datastructpageobj; 
 	static String exectedmsg;

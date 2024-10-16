@@ -20,7 +20,7 @@ import io.cucumber.java.en.When;
 
 public class StackStepDefination {
 	WebDriver driver;
-	//Stack s1= new Stack();
+
 	TestContextSetup testcontextsetup;
 	StackPageObject stackpageobj; 
 	static String expectedmsg;

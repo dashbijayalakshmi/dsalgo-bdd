@@ -135,7 +135,8 @@ Feature: Verify Arrays page
     Given The user is on the Try Editor page of Arrays
     When User writes Python code for Arrays given sheetname "sheet4" rownumber 2 and columnumber 1
     And User click on Run button on Arrays page
-    Then The user gets error pop up box of Arrays page
+    Then The user gets error pop up box of Arrays Page
+    
 
   @Arrays
   Scenario: Go back to Applications of Array page from Try Editor page
