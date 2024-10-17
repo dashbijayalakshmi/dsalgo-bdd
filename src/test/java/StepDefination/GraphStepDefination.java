@@ -9,7 +9,7 @@ import org.testng.Assert;
 
 import Pageobjects.GraphPageObjects;
 import Pageobjects.Run_PythonCodes;
-import Pageobjects.TreePageObjects;
+
 import Pageobjects.landingpageobjects;
 import Utils.ExcelReader;
 import Utils.TestContextSetup;
@@ -22,7 +22,7 @@ public class GraphStepDefination {
 	WebDriver driver;
 	TestContextSetup testcontextsetup;
 	GraphPageObjects graphpage;
-	TreePageObjects treepageobj;
+	
 	Run_PythonCodes runpythoncode;
 	
 	landingpageobjects landingpage;
@@ -78,7 +78,7 @@ public class GraphStepDefination {
 	}
 	
 	@When("The user clicks Graph link present under topics covered")
-	public void the_user_clicks_overview_of_trees_link_present_under_topics_covered() {
+	public void the_user_clicks_graph_link_present_under_topics_covered() {
 	    graphpage.graph();
 	}
 	
@@ -86,7 +86,7 @@ public class GraphStepDefination {
 	public void user_clicks_try_here_of_graph() {
 		graphpage.click_TryHere();
 	    
-	  //System.out.println("User clicked Try Here button from Overview of Trees");   
+	   
 	}
 	
 	@Then("The user should be redirected to tryEditor of Graph")
@@ -108,16 +108,7 @@ public class GraphStepDefination {
 		graphpage.graph();
 
 	}
-	/*@When("The user writes Python code from given sheetname {string} rownumber {int} and columnumber {int}")
-	public void the_user_writes_python_code_from_sheetname_rownumber_and_columnumber(String sheetname,
-			Integer rownumber, Integer columnumber) throws InterruptedException {
-
-		String python_code = ExcelReader.getExcelValue(sheetname, rownumber, columnumber);
-		System.out.println("First");
-		treepageobj.getPythonCode_from_excel(python_code);
-
-
-	}*/
+	
 	@When("The user enter valid Python code from given sheetname {string} rownumber {int} and columnumber {int}")
 	public void the_user_enter_valid_python_code(String sheetname,
 	Integer rownumber, Integer columnumber) throws InterruptedException {
@@ -139,7 +130,7 @@ public class GraphStepDefination {
 	public void user_is_alreadyon_the_try_editor_of_graph() {
 		graphpage.graph();
 		graphpage.click_TryHere();;
-		//System.out.println("User is on the Try Editor page of Overview of Trees section");
+		
 	}
 	@When("User enter invalid Python code from given sheetname {string} rownumber {int} and columnumber {int}")
 	public void user_enter_invalid_python_code(String sheetname,
@@ -162,7 +153,7 @@ public class GraphStepDefination {
 	public void user_is_on_the_try_editor_page_of_graph() {
 		graphpage.graph();
 		graphpage.click_TryHere();
-		//System.out.println("User is on the Try Editor page of Overview of Trees section");
+		
 	}
 	@Then("It should redirect to Graph page")
 	public void it_should_redirect_to_overview_of_graph_page() {
@@ -216,7 +207,7 @@ public class GraphStepDefination {
 	public void user_is_on_the_try_editor_page_of_graph_representations() {
 		graphpage.graphRepresentation();
 		graphpage.click_TryHere();
-		//System.out.println("User is on the Try Editor page of Overview of Trees section");
+		
 	}
 	@Then("It should redirect to Graph Representations page")
 	public void it_should_redirect_to_overview_of_graph_representations_page() {

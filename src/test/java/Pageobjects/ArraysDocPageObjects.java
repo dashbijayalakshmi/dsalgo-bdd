@@ -3,6 +3,7 @@ package Pageobjects;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -24,7 +25,13 @@ private By Arrays_Use_List=By.linkText("Arrays Using List");
 private By BasicOperations_Lists=By.linkText("Basic Operations in Lists");
 private By ApplicationsOfArray=By.linkText("Applications of Array");
 private By tryhere=/*By.xpath("Try here>>>")*/By.xpath("//a[@href='/tryEditor' and text()='Try here>>>']");
+
 private By PracticeQuestions = By.linkText("Practice Questions");
+private By practiceQuestion1=By.xpath("/html/body/div[2]/a");
+private By output_panel = By.xpath("//*[@id=\"output\"]");
+private By practiceQuestion2=By.xpath("/html/body/div[3]/a");
+private By practiceQuestion3=By.xpath("/html/body/div[4]/a");
+private By practiceQuestion4=By.xpath("/html/body/div[5]/a");
 public ArraysDocPageObjects(WebDriver driver) {
 	this.driver=driver;
 	
@@ -116,6 +123,39 @@ public void is_practiceQuestion_Displayed() {
 	Assert.assertTrue(content, "Practice Questions Available");
 	
 }
+public void showoutput() {
+	WebElement output = driver.findElement(output_panel);
+	output.getText();
+	boolean output_isDisplayed = output.isDisplayed();
+	Assert.assertTrue(output_isDisplayed, "Output is not displayed");
+	System.out.println("Output is " + output);
+
+}
+public void click_SearchTheArray() {
+	driver.findElement(practiceQuestion1).click();
+	
+}
+public void click_MaxConsecutiveOnes() {
+	driver.findElement(practiceQuestion2).click();
+	
+}
+public void click_FindNumberswithEvenNumberOfDigits() {
+	driver.findElement(practiceQuestion3).click();
+	
+}
+public void click_SquaresOfASortedArray() {
+	driver.findElement(practiceQuestion4).click();
+	
+}
+public void popUp() {
+	Alert alert_popup = driver.switchTo().alert();
+	String alert_message = alert_popup.getText();
+	System.out.println("Error occured is: " + alert_message);
+	alert_popup.accept();
+}
+
+
+
 
 	
 }
