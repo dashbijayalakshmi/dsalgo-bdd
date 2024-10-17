@@ -155,7 +155,7 @@ Feature: Verify Queue page
     And Topics covered under Queue should be displayed on the left
     
      @Queue
-  Scenario: Validate Practice Questions of Tree section
+  Scenario: Validate Practice Questions of Queue section
     Given The user is in the Queue page after loggedin
     And Navigated to any topics of the Queue
     When The user clicks Practice Questions of Queue section

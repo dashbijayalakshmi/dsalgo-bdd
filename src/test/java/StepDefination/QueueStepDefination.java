@@ -9,7 +9,7 @@ import org.testng.Assert;
 
 import Pageobjects.QueuePageObjects;
 import Pageobjects.Run_PythonCodes;
-import Pageobjects.TreePageObjects;
+
 import Pageobjects.landingpageobjects;
 import Utils.ExcelReader;
 import Utils.TestContextSetup;
@@ -21,7 +21,7 @@ public class QueueStepDefination {
 	QueuePageObjects queuepage;
 	landingpageobjects landingpage;
 	//Run_PythonCodes runpythoncode;
-	//TreePageObjects treepageobj;
+	
 	public QueueStepDefination(TestContextSetup testcontextsetup) {
 		this.testcontextsetup=testcontextsetup;
 		this.queuepage=testcontextsetup.pageobjectmanager.getQueuePage();
@@ -170,7 +170,7 @@ public class QueueStepDefination {
 	public void user_is_on_the_try_editor_page_of_implementation_of_queue_in_python() {
 		queuepage.linkImplementationOfQueueInPython();
 		queuepage.tryhere();
-		//System.out.println("User is on the Try Editor page of Overview of Trees section");
+		
 	}
 	
 	@When("User click on the back arrow of Queue")
@@ -206,7 +206,7 @@ public class QueueStepDefination {
 	public void user_is_on_the_try_editor_page_of_implementation_using_collections() {
 		queuepage.linkImplementationUsingCollections();
 		queuepage.tryhere();
-		//System.out.println("User is on the Try Editor page of Overview of Trees section");
+		
 	}
 	@Then("It should redirect to Implementation using collections.deque page")
 	public void it_should_redirect_to_implementation_using_collections_page() {
@@ -238,7 +238,7 @@ public class QueueStepDefination {
 	public void user_is_on_the_try_editor_page_of_implementation_using_array() {
 		queuepage.linkImplementationUsingArray();
 		queuepage.tryhere();
-		//System.out.println("User is on the Try Editor page of Overview of Trees section");
+		
 	}
 	@Then("It should redirect to Implementation using array page")
 	public void it_should_redirect_to_implementation_using_array() {
@@ -259,7 +259,7 @@ public class QueueStepDefination {
 	public void user_is_on_the_try_editor_page_of_queue_operations() {
 		queuepage.linkQueueOperations();
 		queuepage.tryhere();
-		//System.out.println("User is on the Try Editor page of Overview of Trees section");
+		
 	}
 	@Then("It should redirect to Queue Operations page")
 	public void it_should_redirect_to_queue_operations() {

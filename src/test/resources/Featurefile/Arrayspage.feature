@@ -151,3 +151,57 @@ Feature: Verify Arrays page
     And Navigated to any topics of the Arrays page -Applications of Arrays
     When The user clicks on the Practice Questions of Arrays
     Then Practice Question Page should be open on Arrays
+    
+     @Arrays
+  Scenario: The user validating Practice Questions Search the array
+    Given The user is on the practice questions of Array page
+    When The user clicks on the Search the arrays
+    Then Search the arrays Question Page should be open
+    
+     @Arrays
+  Scenario: Verify valid code
+    Given The user is on the Search the arrays page
+    When User writes Python code for Arrays from given sheetname "Sheet4" rownumber 3 and columnumber 1
+    Then User click on Run button on Array page
+    And User gets error popup of Array Page
+    
+    
+     @Arrays
+  Scenario: The user validating Practice Questions Max Consecutive Ones
+    Given The user is on the practice questions of Array page
+    When The user clicks on the Max Consecutive Ones
+    Then Search the arrays Question Page should be open
+    
+     @Arrays
+  Scenario: Verify valid code Max Consecutive Ones
+    Given The user is on the Max Consecutive Ones page
+    When User writes Python code for Arrays from given sheetname "Sheet4" rownumber 4 and columnumber 1
+    Then User click on Run button on Array page
+    And User gets error popup of Array Page
+    
+      @Arrays
+  Scenario: The user validating Practice Questions Find Numbers with Even Number of Digits
+    Given The user is on the practice questions of Array page
+    When The user clicks on the Find Numbers with Even Number of Digits
+    Then Search the arrays Question Page should be open
+    
+     @Arrays
+  Scenario: Verify valid code Find Numbers with Even Number of Digits
+    Given The user is on the Find Numbers with Even Number of Digits page
+    When User writes Python code for Arrays from given sheetname "Sheet4" rownumber 4 and columnumber 1
+    Then User click on Run button on Array page
+   And User gets error popup of Array Page
+   
+     @Arrays
+  Scenario: The user validating Practice Questions Squares of a Sorted Array
+    Given The user is on the practice questions of Array page
+    When The user clicks on the Squares of a Sorted Array
+    Then Search the arrays Question Page should be open
+    
+     @Arrays
+  Scenario: Verify valid code Squares of a Sorted Array
+    Given The user is on the Squares of a Sorted Array page
+    When User writes Python code for Arrays from given sheetname "Sheet4" rownumber 4 and columnumber 1
+    Then User click on Run button on Array page
+    And User gets error popup of Array Page
+    #
