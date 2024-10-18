@@ -11,6 +11,7 @@ public class landingpageobjects {
 private By h1tag_launchpage=By.cssSelector("h1");
 private By ptag_launchpage=By.cssSelector("p");
 private By getStarted=By.linkText("Get Started");
+//private By getStarted=By.xpath("//a/button[@class='btn']");
 
 WebDriver driver;
 public landingpageobjects(WebDriver driver) {

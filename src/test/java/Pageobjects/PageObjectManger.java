@@ -2,6 +2,9 @@ package Pageobjects;
 
 import org.openqa.selenium.WebDriver;
 
+import Utils.ConfigReader;
+import Utils.DriverFactory;
+
 public class PageObjectManger {
 public WebDriver driver;
 public landingpageobjects landingpage;
@@ -11,6 +14,9 @@ public DataStructPage datastructpage;
 
 public QueuePageObjects queuepage;
 public homepage_pageobject homepage;
+public DriverFactory driverfactory;
+public ConfigReader configreader;
+
 
 
 
@@ -29,7 +35,9 @@ public StackPageObject stackpageobj;
 
 
 public PageObjectManger(WebDriver driver) {
-	this.driver=driver;
+	driverfactory=new DriverFactory();
+	this.driver=driverfactory.getdriver();	
+	
 }
 public landingpageobjects getLandingpageobjects() {
 	landingpage=new landingpageobjects(driver);
@@ -96,5 +104,18 @@ public LinkedlistPageObject1 getlinkedlistpageobj()
 	linkedlistpageobj = new LinkedlistPageObject1(driver);
 	return linkedlistpageobj;
 }
+public DriverFactory getdriverfactory()
+{
+	driverfactory=new DriverFactory();
+	
+	return driverfactory;
+}
+public ConfigReader getconfigreaderfile()
+{
+	configreader=new ConfigReader();
+	return configreader;
+			
+}
+
 }
 
