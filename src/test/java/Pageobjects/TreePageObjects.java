@@ -17,6 +17,7 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import Utils.DriverFactory;
 import io.cucumber.messages.types.Duration;
 
 public class TreePageObjects {
@@ -48,10 +49,13 @@ public class TreePageObjects {
 	private By impofBST = By.linkText("Implementation Of BST");
 	private By PracticeQuestion = By.linkText("Practice Questions");
 
-	public WebDriver driver;
-
+	public DriverFactory driverfactory;
+	
+	WebDriver driver;
 	public TreePageObjects(WebDriver driver) {
-		this.driver = driver;
+		//this.driver=driver;
+		driverfactory=new DriverFactory();
+		this.driver=driverfactory.getdriver();	
 	}
 
 	public void click_tree_getstarted() {

@@ -6,6 +6,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
+import Utils.ConfigReader;
+import Utils.DriverFactory;
+import Utils.TestContextSetup;
+
 public class RegistrationPageObj {
 	
 	private By register_link=By.xpath("//ul/a[@href='/register']");
@@ -19,11 +23,16 @@ public class RegistrationPageObj {
 	private By error_invalid_input=By.xpath("//div[@class='alert alert-primary']");
 	private By newuser_success_msg=By.xpath("//div[@class='alert alert-primary' and contains(text(),\"New Account Created\")]");
 	
+public DriverFactory driverfactory;
+	
 	WebDriver driver;
-	public RegistrationPageObj(WebDriver driver)
-	{
-		this.driver=driver;
+	public RegistrationPageObj(WebDriver driver) {
+		//this.driver=driver;
+		driverfactory=new DriverFactory();
+		this.driver=driverfactory.getdriver();	
 	}
+	
+	
 	public void click_register_link()
 	{
 		driver.findElement(register_link).click();

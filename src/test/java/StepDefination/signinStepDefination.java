@@ -24,7 +24,8 @@ public class signinStepDefination {
 	
 	@Given("User is already navigated to the DS Algo Portal")
 	public void user_is_already_navigated_to_the_ds_algo_portal() throws IOException {
-		System.out.println("The User is on the"+testcontextsetup.testbase.WebDriverManager().getTitle()+" Portal");
+		//System.out.println("The User is on the"+testcontextsetup.testbase.WebDriverManager().getTitle()+" Portal");
+		System.out.println("User is on the DS Portal");
 	}
 	
 	@Given("The user is on the DS Algo Sign in Page")

@@ -9,6 +9,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
+import Utils.DriverFactory;
+
 public class Signinpageobjects {
 	private By register_link=By.linkText("Register");
 	private By signin=By.linkText("Sign in");
@@ -22,10 +24,13 @@ public class Signinpageobjects {
 	private By alert_message=By.xpath("//div[@role='alert']");
 	private By error_invalid_userPass=By.xpath("//div[contains(text(), 'Invalid Username and Password')]");
 	private By registerbtn_on_loginpage=By.xpath("//div[@class='col-sm']/a[@href='/register']");
+	public DriverFactory driverfactory;
 	
 	WebDriver driver;
 	public Signinpageobjects(WebDriver driver) {
-		this.driver=driver;
+		//this.driver=driver;
+		driverfactory=new DriverFactory();
+		this.driver=driverfactory.getdriver();	
 	}
 	public boolean regis_sign(){
 		WebElement register=driver.findElement(register_link);

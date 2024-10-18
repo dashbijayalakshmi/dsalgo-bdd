@@ -2,6 +2,9 @@ package Pageobjects;
 
 import org.openqa.selenium.WebDriver;
 
+import Utils.ConfigReader;
+import Utils.DriverFactory;
+
 public class PageObjectManger {
 public WebDriver driver;
 public landingpageobjects landingpage;
@@ -9,6 +12,9 @@ public Signinpageobjects signinpage;
 public DataStructPage datastructpage;
 public ArraysDocPageObjects arraysdocpage;
 public homepage_pageobject homepage;
+public DriverFactory driverfactory;
+public ConfigReader configreader;
+
 
 //public QueuePageObjects queuepage;
 
@@ -18,7 +24,9 @@ public Run_PythonCodes runpythoncode;
 public RegistrationPageObj registrationpage; 
 
 public PageObjectManger(WebDriver driver) {
-	this.driver=driver;
+	driverfactory=new DriverFactory();
+	this.driver=driverfactory.getdriver();	
+	
 }
 public landingpageobjects getLandingpageobjects() {
 	landingpage=new landingpageobjects(driver);
@@ -59,4 +67,17 @@ public homepage_pageobject gethomepageobj()
 	return homepage;
 	
 }
+public DriverFactory getdriverfactory()
+{
+	driverfactory=new DriverFactory();
+	
+	return driverfactory;
+}
+public ConfigReader getconfigreaderfile()
+{
+	configreader=new ConfigReader();
+	return configreader;
+			
+}
+
 }

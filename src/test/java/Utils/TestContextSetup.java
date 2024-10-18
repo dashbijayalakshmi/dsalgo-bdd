@@ -1,7 +1,5 @@
 package Utils;
 
-import java.io.IOException;
-
 import org.openqa.selenium.WebDriver;
 
 import Pageobjects.PageObjectManger;
@@ -9,10 +7,15 @@ import Pageobjects.PageObjectManger;
 public class TestContextSetup {
 public WebDriver driver;
 public PageObjectManger pageobjectmanager;
-public TestBase testbase;
+public ConfigReader configreader;
+//public TestBase testbase;
+public DriverFactory driverfactory;
 
-public TestContextSetup() throws IOException {
-	testbase=new TestBase();
-	pageobjectmanager=new PageObjectManger(testbase.WebDriverManager());
+public TestContextSetup() throws Throwable {
+	//testbase=new TestBase();
+	//pageobjectmanager=new PageObjectManger(testbase.WebDriverManager());
+	driverfactory=new DriverFactory();
+	String browser = configreader.getBrowserType();
+	pageobjectmanager=new PageObjectManger(driverfactory.initializeDrivers(browser));
 }
 }
