@@ -10,18 +10,29 @@ public WebDriver driver;
 public landingpageobjects landingpage;
 public Signinpageobjects signinpage;
 public DataStructPage datastructpage;
-public ArraysDocPageObjects arraysdocpage;
+
+
+public QueuePageObjects queuepage;
 public homepage_pageobject homepage;
 public DriverFactory driverfactory;
 public ConfigReader configreader;
 
 
-//public QueuePageObjects queuepage;
 
 
+public GraphPageObjects graphpage;
+
+//public TreePageObjects treepageobj;
+//public Run_PythonCodes runpythoncode;
+public RegistrationPageObj registrationpage; 
+
+public ArraysDocPageObjects arraysdocpage;
 public TreePageObjects treepageobj;
 public Run_PythonCodes runpythoncode;
-public RegistrationPageObj registrationpage; 
+public LinkedlistPageObject1 linkedlistpageobj;
+public StackPageObject stackpageobj;
+
+
 
 public PageObjectManger(WebDriver driver) {
 	driverfactory=new DriverFactory();
@@ -35,13 +46,17 @@ public landingpageobjects getLandingpageobjects() {
 public Signinpageobjects getSigninpageobjects() {
 	signinpage=new Signinpageobjects(driver);
 	return signinpage;
-}public DataStructPage getDataStructPage() {
+}public DataStructPage getdatastructPage() {
 	datastructpage=new DataStructPage(driver);
 	return datastructpage;
 }public ArraysDocPageObjects getArrayDocPage() {
 	arraysdocpage=new ArraysDocPageObjects(driver);
 	return arraysdocpage;
 }
+public QueuePageObjects getQueuePage() {
+	queuepage=new QueuePageObjects(driver);
+	return queuepage;
+}	
 
 //public QueuePageObjects getQueuePage() {
 //	queuepage=new QueuePageObjects(driver);
@@ -51,10 +66,22 @@ public TreePageObjects gettreepageobj() {
 	treepageobj=new TreePageObjects(driver);
 	return treepageobj;
 }
+/*public Linkedlistpageobject getlinkedlistpageobj() {
+	linkedlistpageobj=new Linkedlistpageobject(driver);
+	return linkedlistpageobj;*/
+
+public StackPageObject getstackpageobj() {
+	stackpageobj=new StackPageObject(driver);
+	return stackpageobj;
+}
 public Run_PythonCodes getruncodeobj()
 {
 	 runpythoncode=new Run_PythonCodes(driver);
 	 return runpythoncode;
+
+	
+
+
 }
 public RegistrationPageObj getregpageobj()
 	{
@@ -66,6 +93,16 @@ public homepage_pageobject gethomepageobj()
 	homepage=new homepage_pageobject(driver);
 	return homepage;
 	
+
+}
+public GraphPageObjects getGraphPage() {
+	graphpage=new GraphPageObjects(driver);
+	return graphpage;
+}
+public LinkedlistPageObject1 getlinkedlistpageobj() 
+{
+	linkedlistpageobj = new LinkedlistPageObject1(driver);
+	return linkedlistpageobj;
 }
 public DriverFactory getdriverfactory()
 {
@@ -81,3 +118,4 @@ public ConfigReader getconfigreaderfile()
 }
 
 }
+
