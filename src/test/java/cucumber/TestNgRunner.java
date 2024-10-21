@@ -8,21 +8,15 @@ import Utils.ConfigReader;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
-//<<<<<<< Updated upstream
+
 @CucumberOptions(features="src/test/resources/Featurefile",
 				 glue="StepDefination",
 				 monochrome=true,
 				 tags = " ",
 				 plugin= {"html:target/cucumber.html","json:target/cucumber.json",
-						"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"}
+						 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:","io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"}
 				)
-//=======
-/*@CucumberOptions(features="src/test/resources/Featurefile",glue="StepDefination",monochrome=true,
-//tags= "",plugin= {"html:target/cucumber.html","json:target/cucumber.json",
 
-tags= " ",plugin= {"html:target/cucumber.html","json:target/cucumber.json",
-		"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"})*/
-//>>>>>>> Stashed changes
 public class TestNgRunner extends AbstractTestNGCucumberTests {
 	@Override
 	@DataProvider(parallel=false)

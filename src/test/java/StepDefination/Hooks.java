@@ -73,43 +73,25 @@ public class Hooks {
 			driver.get(url);
 			driver.findElement(getStarted).click();
 		 }
-	 
 	 @After
-		 public void After()
-		 {
-			 driver.quit();
-		 }
-		 
+	public void AfterScenario(Scenario scenario) throws IOException {
+		
+		if(scenario.isFailed()) {
+			byte[] screenshot=((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
+			Allure.addAttachment("Failed Screenshot",new ByteArrayInputStream(screenshot));
+		}
+		driver.quit();
+	}
 	@AfterStep
-		public void AddScreenShot(Scenario scenario) throws IOException {
-			if(scenario.isFailed()) 
-			{
-				File sourcepath=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-				byte[] fileContent=FileUtils.readFileToByteArray(sourcepath);
-				scenario.attach(fileContent, "image/png", "image");
-			}
+	public void AddScreenShot(Scenario scenario) throws IOException {
+		if(scenario.isFailed()) 
+		{
+			File sourcepath=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+			byte[] fileContent=FileUtils.readFileToByteArray(sourcepath);
+			scenario.attach(fileContent, "image/png", "image");
+		}
 	}
 }
-
-//@Before(order=0)
-//public void BeforeScenario() throws IOException {
-//	//System.out.println(testcontextsetup.testbase.WebDriverManager().getTitle()+" from hooks");
-//	Assert.assertTrue(landingpage.h1_ptag_getstarted());
-//	landingpage.click_getstartbtn();
-//	Assert.assertTrue(signinpage.regis_sign());
-//	//System.out.println(signinpage.datastructure()+" is displayed");
-//	}
-
-
-//	@After
-//	public void AfterScenario(Scenario scenario) throws IOException {
-//		WebDriver driver=testcontextsetup.testbase.WebDriverManager();
-//		if(scenario.isFailed()) {
-//			byte[] screenshot=((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
-//			Allure.addAttachment("Failed Screenshot",new ByteArrayInputStream(screenshot));
-//		}
-//		driver.quit();
-//	}
 //	@AfterStep
 //	public void AddScreenShot(Scenario scenario) throws IOException {
 //		WebDriver driver=testcontextsetup.testbase.WebDriverManager();
