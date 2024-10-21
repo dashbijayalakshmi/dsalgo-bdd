@@ -11,7 +11,7 @@
 		</classes>
 	</test> <!--Test -->
 
-	<test thread-count="3" name="Testfirefox">
+	<!--<test thread-count="3" name="Testfirefox">
 		<parameter name="browser" value="firefox" />
 		<classes>
 			<class name="cucumber.TestNgRunner"></class>
@@ -23,6 +23,5 @@
 		<classes>
 			<class name="cucumber.TestNgRunner"></class>
 		</classes>
-	</test> 
-
+	</test>-->
 </suite> 

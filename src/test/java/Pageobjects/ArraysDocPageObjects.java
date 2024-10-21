@@ -9,9 +9,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
+import Utils.DriverFactory;
 
 public class ArraysDocPageObjects {
-public WebDriver driver;
+
 private By Array_getstart=By.xpath("//a[@href='array' and text()='Get Started']");
 private By array_list=By.cssSelector("ul a.list-group-item");
 private By topics_cov=By.xpath("//p[text()='Topics Covered']");
@@ -32,8 +33,15 @@ private By output_panel = By.xpath("//*[@id=\"output\"]");
 private By practiceQuestion2=By.xpath("/html/body/div[3]/a");
 private By practiceQuestion3=By.xpath("/html/body/div[4]/a");
 private By practiceQuestion4=By.xpath("/html/body/div[5]/a");
-public ArraysDocPageObjects(WebDriver driver) {
-	this.driver=driver;
+
+	//this.driver=driver;
+	public DriverFactory driverfactory;
+	WebDriver driver;
+	public ArraysDocPageObjects(WebDriver driver) {
+		//this.driver=driver;
+		driverfactory=new DriverFactory();
+		this.driver=driverfactory.getdriver();	
+	
 	
 }
 public void click_getstarted() {

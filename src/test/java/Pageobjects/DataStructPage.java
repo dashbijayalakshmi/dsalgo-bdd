@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
+import Utils.DriverFactory;
 
 public class DataStructPage {
 private By Datastruct_Get_Started= By.xpath("//div/a[@href='data-structures-introduction' and text()='Get Started']");
@@ -27,12 +28,17 @@ private By tryhere=By.linkText("Try here>>>");
 private By input=By.cssSelector("pre.CodeMirror-line");
 private By Runbtn=By.xpath("//button[@onclick='runit()']");
 private By output=By.cssSelector("pre#output");*/
-public WebDriver driver;
 
-public DataStructPage(WebDriver driver) 
-{
-	this.driver = driver;
+public DriverFactory driverfactory;
+
+WebDriver driver;
+public DataStructPage(WebDriver driver) {
+	//this.driver=driver;
+	driverfactory=new DriverFactory();
+	this.driver=driverfactory.getdriver();	
 }
+
+
 
 public void click_datastructures_getstarted() {
 	driver.findElement(Datastruct_Get_Started).click();
@@ -83,7 +89,7 @@ public void goback_frmTryeditor() {
 public void contents_outpage() {
 	boolean content = driver.findElement(content_out).isDisplayed();
 	if (content) {
-		System.out.println("Topics Covered under Tree sections are present on left side of the screen");
+		System.out.println("Topics Covered under Data Structure sections are present on left side of the screen");
 	}
 	}
 	public void click_PracticeQuestions() {
