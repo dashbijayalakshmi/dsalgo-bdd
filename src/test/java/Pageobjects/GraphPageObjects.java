@@ -10,15 +10,22 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
+import Utils.DriverFactory;
+
+
 
 
 public class GraphPageObjects {
-	public WebDriver driver;
+	/*public WebDriver driver;
 	Actions actions;
 	public GraphPageObjects(WebDriver driver) {
 		this.driver=driver;
-		actions = new Actions(driver);
-	}
+		actions = new Actions(driver);*/
+		public DriverFactory driverfactory;
+		
+		
+		
+	
 	private By btnGetStartgraph=By.xpath("/html/body/div[3]/div[7]/div/div/a");
 	private By lineGraph=By.xpath("/html/body/div[2]/ul[2]/a");
 	private By lineGraphRepresentations=By.xpath("/html/body/div[2]/ul[3]/a");
@@ -34,6 +41,12 @@ public class GraphPageObjects {
 	private By output_panel = By.id("output");
 	
 	//*******//
+	WebDriver driver;
+	public GraphPageObjects(WebDriver driver) {
+		//this.driver=driver;
+		driverfactory=new DriverFactory();
+		this.driver=driverfactory.getdriver();	
+	}
 	public void btnGetStartGraph() {
 		driver.findElement(btnGetStartgraph).click();
 	}

@@ -10,6 +10,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 
+import Utils.DriverFactory;
+
 public class StackPageObject {
 	private By Stack_Started=By.xpath("//div/a[@href='stack' and text()='Get Started']");
 
@@ -41,9 +43,17 @@ public class StackPageObject {
 	private By content_outapplications=By.id("content");
 	private By PracticeQuestion= By.linkText("Practice Questions");
 	
-	public WebDriver driver;
+	/*public WebDriver driver;
 	public 	StackPageObject(WebDriver driver) {
 		this.driver=driver;
+	}*/
+public DriverFactory driverfactory;
+	
+	WebDriver driver;
+	public StackPageObject(WebDriver driver) {
+		//this.driver=driver;
+		driverfactory=new DriverFactory();
+		this.driver=driverfactory.getdriver();	
 	}
 	
 	public void click_stack_getstarted()

@@ -11,15 +11,19 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
+
+import Utils.DriverFactory;
+import org.openqa.selenium.interactions.Actions;
+
 import org.openqa.selenium.interactions.Actions;
 
 public class QueuePageObjects {
-	public WebDriver driver;
-	Actions actions;
+	/*public WebDriver driver;
+
 	public QueuePageObjects(WebDriver driver) {
-		this.driver=driver;
-		actions = new Actions(driver);
-	}
+		this.driver=driver;*/
+		/*actions = new Actions(driver);
+	    Actions actions;*/
 		private By btnGetStartQueue=By.xpath("/html/body/div[3]/div[5]/div/div/a");
 		private By text=By.xpath("/html/body/div[2]/h4");
 		private By queueTopic=By.xpath("/html/body/div[2]/p[3]");
@@ -37,6 +41,18 @@ public class QueuePageObjects {
 		private By output_panel = By.id("output");
 		private By PracticeQuestion = By.linkText("Practice Questions");
 		
+		public DriverFactory driverfactory;
+		
+		WebDriver driver;
+		public QueuePageObjects(WebDriver driver)
+		{
+			//this.driver=driver;
+			driverfactory=new DriverFactory();
+			this.driver=driverfactory.getdriver();
+			//actions = new Actions(driver);
+		    //Actions actions;
+			
+		}
 		public void btnGetStartQueue() {
 			driver.findElement(btnGetStartQueue).click();
 		}
@@ -61,7 +77,7 @@ public class QueuePageObjects {
 			driver.findElement(txtCode).sendKeys();
 		}
 		public void actionCode(String text) {
-			actions.sendKeys(driver.findElement(txtCode),text).perform();
+			new Actions(driver).sendKeys(driver.findElement(txtCode),text).perform();
 		}
 		public void run() {
 			driver.findElement(btnrun).click();

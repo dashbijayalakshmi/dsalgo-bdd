@@ -17,6 +17,7 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import Utils.DriverFactory;
 import io.cucumber.messages.types.Duration;
 
 public class LinkedlistPageObject1 {
@@ -42,13 +43,21 @@ public class LinkedlistPageObject1 {
 	private By Deletion = By.linkText("Deletion");
 	private By PracticeQuestions = By.linkText("Practice Questions");
 
-	public WebDriver driver;
+	/*public WebDriver driver;
 
 	public LinkedlistPageObject1(WebDriver driver) 
 	{
 		this.driver = driver;
 	}
-
+*/
+public DriverFactory driverfactory;
+	
+	WebDriver driver;
+	public LinkedlistPageObject1(WebDriver driver) {
+		//this.driver=driver;
+		driverfactory=new DriverFactory();
+		this.driver=driverfactory.getdriver();	
+	}
 	public void click_linkedlist_getstarted()
 	{
 		driver.findElement(Linkedlist_Get_Started).click();

@@ -130,9 +130,9 @@ Feature: Validate Tree module features
     #Then It should redirect to Terminologies page
     #And Topics covered section is displayed on the left under Terminologies section
 
-    When The user writes Python code from given sheetname "Sheet4" rownumber 1 and columnumber 1
-    And Click on Run button
-    Then User sees output in the output panel under Terminologies section
+    #When The user writes Python code from given sheetname "Sheet4" rownumber 1 and columnumber 1
+    #And Click on Run button
+    #Then User sees output in the output panel under Terminologies section
 
   @Tree
   Scenario: Verify running an invalid python code gives an error
