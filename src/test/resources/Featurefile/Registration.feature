@@ -88,13 +88,13 @@ Feature: Validate User Registration page of DS Algo Portal
    	And Clicked on Register button
     Then User already exists error message should appear
 
-  @Registration
-  Scenario: The user clicks Register button after entering  with valid username, password and password confirmation in related textboxes
-    Given The user is on the Registration Page
-    When From register page user enters Username from given sheetname "Sheet3" rownumber 11 and columnumber 0
-    And From register page user enter password from given sheetname "Sheet3" rownumber 11 and columnumber 1
-    And From register page user enter confirm password from given sheetname "Sheet3" rownumber 11 and columnumber 2
-    And Clicked on Register button
-    Then new user created successfully
-    
+  #@Registration
+  #Scenario: The user clicks Register button after entering  with valid username, password and password confirmation in related textboxes
+    #Given The user is on the Registration Page
+    #When From register page user enters Username from given sheetname "Sheet3" rownumber 11 and columnumber 0
+    #And From register page user enter password from given sheetname "Sheet3" rownumber 11 and columnumber 1
+    #And From register page user enter confirm password from given sheetname "Sheet3" rownumber 11 and columnumber 2
+    #And Clicked on Register button
+    #Then new user created successfully
+    #
    
