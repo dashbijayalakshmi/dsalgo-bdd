@@ -22,60 +22,62 @@ public class ArraysDocPageStepDefination {
 	ArraysDocPageObjects arraysdocpage;
 	landingpageobjects landingpage;
 	Run_PythonCodes runpythoncode;
+
 	public ArraysDocPageStepDefination(TestContextSetup testcontextsetup) {
-		this.testcontextsetup=testcontextsetup;
-		this.arraysdocpage=testcontextsetup.pageobjectmanager.getArrayDocPage();
-		this.landingpage=testcontextsetup.pageobjectmanager.getLandingpageobjects();
-		this.runpythoncode=testcontextsetup.pageobjectmanager.getruncodeobj();
+		this.testcontextsetup = testcontextsetup;
+		this.arraysdocpage = testcontextsetup.pageobjectmanager.getArrayDocPage();
+		this.landingpage = testcontextsetup.pageobjectmanager.getLandingpageobjects();
+		this.runpythoncode = testcontextsetup.pageobjectmanager.getruncodeobj();
 	}
+
 	@And("Clicks on Get Started button on the Array Introduction panel")
 	public void clicks_on_get_started_button_on_the_array_introduction_panel() {
 		arraysdocpage.click_getstarted();
 	}
-	
+
 	@Given("User is on the Array module page")
 	public void user_is_on_the_array_module_page() {
-		String actual_title=landingpage.get_Title();
-		String expected_title="Array";
-		assertEquals(expected_title,actual_title);
-		System.out.println("You are on the" +expected_title+ "Page");
+		String actual_title = landingpage.get_Title();
+		String expected_title = "Array";
+		assertEquals(expected_title, actual_title);
+		System.out.println("You are on the" + expected_title + "Page");
 	}
-	
+
 	@When("The user scroll downs to Topics covered section on the Array page")
 	public void the_user_scroll_downs_to_topics_covered_section_on_the_array_page() {
-		 arraysdocpage.topic_display(); 
+		arraysdocpage.topic_display();
 	}
 
 	@Then("Required list of Arrays topics covered should be displayed")
-	public void required_list_of_arrays_topics_covered_should_be_displayed(io.cucumber.datatable.DataTable Arraystopics) 
-	{
+	public void required_list_of_arrays_topics_covered_should_be_displayed(
+			io.cucumber.datatable.DataTable Arraystopics) {
 		List<String> Expected_list = Arraystopics.asList();
 		List<String> Actual_list = arraysdocpage.arrays_topicscovered_list();
-	    System.out.println("Expected List is:" + Expected_list);
-	    System.out.println("Actual List is:" + Actual_list);
-	    Assert.assertEquals(Expected_list, Actual_list, "List is not present"); 
+		System.out.println("Expected List is:" + Expected_list);
+		System.out.println("Actual List is:" + Actual_list);
+		Assert.assertEquals(Expected_list, Actual_list, "List is not present");
 	}
 
 	@Given("The user is in the Array page after logged in")
 	public void the_user_is_in_the_array_page_after_logged_in() {
-		        String actual_title=landingpage.get_Title();
-				String expected_title="Array";
-				assertEquals(expected_title,actual_title);
-				System.out.println("User is on the" +expected_title+ "page");
+		String actual_title = landingpage.get_Title();
+		String expected_title = "Array";
+		assertEquals(expected_title, actual_title);
+		System.out.println("User is on the" + expected_title + "page");
 	}
 
 	@When("The user clicks Arrays in Python link present under topics covered")
 	public void the_user_clicks_arrays_in_python_link_present_under_topics_covered() {
 		arraysdocpage.click_ArraysinPython();
-	    System.out.println("User clicked Arrays in Python link");
+		System.out.println("User clicked Arrays in Python link");
 	}
 
 	@Then("The user should be directed to Arrays in Python Page")
 	public void the_user_should_be_directed_to_arrays_in_python_page() {
 		String actualtitle = landingpage.get_Title();
-		String expectedtitle="Arrays in Python";
-		assertEquals(expectedtitle,actualtitle);
-		System.out.println("User is on the" +expectedtitle+ "page");
+		String expectedtitle = "Arrays in Python";
+		assertEquals(expectedtitle, actualtitle);
+		System.out.println("User is on the" + expectedtitle + "page");
 	}
 
 	@Given("The user is on the Arrays in Python page")
@@ -85,39 +87,35 @@ public class ArraysDocPageStepDefination {
 
 	@When("The User clicks Try Here button of Arrays page")
 	public void the_user_clicks_try_here_button_of_arrays_page() {
-		 
-		arraysdocpage.click_TryHere();  
-		   System.out.println("User clicked Try Here button from Arrays in Python"); 
+
+		arraysdocpage.click_TryHere();
+		System.out.println("User clicked Try Here button from Arrays in Python");
 	}
 
 	@Then("The user redirected to Arrays page having an tryEditor with a Run button to test")
 	public void the_user_redirected_to_arrays_page_having_an_try_editor_with_a_run_button_to_test() {
-		String actual_title=landingpage.get_Title();
-	    String expected_title="Assessment";
-	    assertEquals(expected_title,actual_title);
-	    System.out.println("User is on the Try Editor Page");
+		String actual_title = landingpage.get_Title();
+		String expected_title = "Assessment";
+		assertEquals(expected_title, actual_title);
+		System.out.println("User is on the Try Editor Page");
 	}
 
 	@Given("The user is on the Try Editor page of Arrays in Python")
 	public void the_user_is_on_the_try_editor_page_of_arrays_in_python() {
-	    arraysdocpage.click_ArraysinPython();
+		arraysdocpage.click_ArraysinPython();
 		arraysdocpage.click_TryHere_ArraysinPython();
-		System.out.println("User is on the Try Editor page of Arrays in Python section");  
-	 }
-
+		System.out.println("User is on the Try Editor page of Arrays in Python section");
+	}
 
 	@When("User writes valid Python code of Arrays")
-	public void user_writes_valid_python_code_of_arrays()
-	{
-		   runpythoncode.validcode_editor();
-		   System.out.println("Valid Python code entered ");
+	public void user_writes_valid_python_code_of_arrays() {
+		runpythoncode.validcode_editor();
+		System.out.println("Valid Python code entered ");
 	}
-	     
-
 
 	@When("User click on Run button of Arrays")
 	public void user_click_on_run_button_of_arrays() {
-		 runpythoncode.run_button();
+		runpythoncode.run_button();
 
 	}
 
@@ -125,13 +123,13 @@ public class ArraysDocPageStepDefination {
 	public void user_sees_output_in_the_output_panel_of_arrays() {
 		runpythoncode.Ouptput_ValidCode();
 	}
+
 	@Given("The user is already on the Try Editor page of Arrays")
 	public void the_user_is_already_on_the_try_editor_page_of_arrays() {
 		arraysdocpage.click_ArraysinPython();
-		arraysdocpage.click_TryHere();  
+		arraysdocpage.click_TryHere();
 		System.out.println("User is on the Try Editor page of Arrays in Python");
-		}
-
+	}
 
 	@When("The User writes invalid Python code of Arrays")
 	public void the_user_writes_invalid_python_code_of_arrays() {
@@ -159,7 +157,7 @@ public class ArraysDocPageStepDefination {
 	public void the_user_clicks_on_the_back_arrow_of_arrays_in_python_page() {
 
 		arraysdocpage.goback_frmTryeditor();
-	  
+
 	}
 
 	@Then("It should redirect to of Arrays in Python")
@@ -173,8 +171,9 @@ public class ArraysDocPageStepDefination {
 	@Then("Topics covered section is displayed on left side of the arrays page")
 	public void topics_covered_section_is_displayed_on_left_side_of_the_arrays_page() {
 		arraysdocpage.contents_on_outpage();
-		   
+
 	}
+
 	@When("The user clicks Arrays using list link present under topics covered")
 	public void the_user_clicks_arrays_using_list_link_present_under_topics_covered() {
 		arraysdocpage.click_Arraysusinglist();
@@ -183,10 +182,11 @@ public class ArraysDocPageStepDefination {
 	@Then("The user should be directed to Arrays using list Page")
 	public void the_user_should_be_directed_to_arrays_using_list_page() {
 		String actual_title = landingpage.get_Title();
-		String expected_title="Arrays Using List";
-		assertEquals(expected_title,actual_title);
-		System.out.println("User is on the" +expected_title+ "page");
+		String expected_title = "Arrays Using List";
+		assertEquals(expected_title, actual_title);
+		System.out.println("User is on the" + expected_title + "page");
 	}
+
 	@Given("The user is on the Arrays using list page")
 	public void the_user_is_on_the_arrays_using_list_page() {
 		arraysdocpage.click_Arraysusinglist();
@@ -194,9 +194,10 @@ public class ArraysDocPageStepDefination {
 
 	@When("The User clicks Try Here button of Arrrays page")
 	public void the_user_clicks_try_here_button_of_arrrays_page() {
-	   
-	arraysdocpage.click_TryHere();
+
+		arraysdocpage.click_TryHere();
 	}
+
 	@Given("The user is on the Try Editor page of Arrays using list")
 	public void the_user_is_on_the_try_editor_page_of_arrays_using_list() {
 		arraysdocpage.click_Arraysusinglist();
@@ -204,7 +205,8 @@ public class ArraysDocPageStepDefination {
 	}
 
 	@When("User writes Python code for Arrays given sheetname {string} rownumber {int} and columnumber {int}")
-	public void user_writes_python_code_for_arrays_given_sheetname_rownumber_and_columnumber(String sheetname, Integer rownumber, Integer columnumber) throws InterruptedException  {
+	public void user_writes_python_code_for_arrays_given_sheetname_rownumber_and_columnumber(String sheetname,
+			Integer rownumber, Integer columnumber) throws InterruptedException {
 		String python_code = ExcelReader.getExcelValue(sheetname, rownumber, columnumber);
 		System.out.println("First");
 		arraysdocpage.getPythonCode_from_excel(python_code);
@@ -214,26 +216,21 @@ public class ArraysDocPageStepDefination {
 	public void user_click_on_run_button_of_arrays_page() {
 		runpythoncode.run_button();
 	}
+
 	@Given("The user is already on the Try Editor page of Arrays Section")
 	public void the_user_is_already_on_the_try_editor_page_of_arrays_section() {
 		arraysdocpage.click_Arraysusinglist();
 		arraysdocpage.click_TryHere();
 	}
 
-
 	@When("User writes Invalid Python code for Arrays given sheetname {string} rownumber {int} and columnumber {int}")
-	public void user_writes_invalid_python_code_for_arrays_given_sheetname_rownumber_and_columnumber(String sheetname, Integer rownumber, Integer columnumber) throws InterruptedException
-	{
+	public void user_writes_invalid_python_code_for_arrays_given_sheetname_rownumber_and_columnumber(String sheetname,
+			Integer rownumber, Integer columnumber) throws InterruptedException {
 		String python_code = ExcelReader.getExcelValue(sheetname, rownumber, columnumber);
 		System.out.println("First");
 		arraysdocpage.getPythonCode_from_excel(python_code);
 	}
-	/*@Given("The User is on the Try Editor page of Arrays using list")
-	public void the_user_is_on_the_try_editor_page_of_arrays_using_list() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}*/
-
+	
 	@When("The user clicks on the back arrow of Arrays using list")
 	public void the_user_clicks_on_the_back_arrow_of_arrays_using_list() {
 		arraysdocpage.goback_frmTryeditor();
@@ -251,7 +248,7 @@ public class ArraysDocPageStepDefination {
 
 	@Then("Topics covered section is displayed on left side of the Arrays using list page")
 	public void topics_covered_section_is_displayed_on_left_side_of_the_arrays_using_list_page() {
-		 arraysdocpage.contents_on_outpage();
+		arraysdocpage.contents_on_outpage();
 	}
 
 	@Given("The user is on the Basic Operations in Lists page")
@@ -262,7 +259,7 @@ public class ArraysDocPageStepDefination {
 
 	@When("The User clicks Try Here button of Basic Operations in Lists page")
 	public void the_user_clicks_try_here_button_of_basic_operations_in_lists_page() {
-	    arraysdocpage.click_TryHere();
+		arraysdocpage.click_TryHere();
 	}
 
 	@Then("The user redirected to a Basic Operations in Lists page having an tryEditor with a Run button to test")
@@ -272,15 +269,16 @@ public class ArraysDocPageStepDefination {
 		assertEquals(Expected_tit, actual_tit);
 		System.out.println("User is on the " + actual_tit + " Page of Basic Operations in Lists");
 	}
+
 	@Given("The user is on the Try Editor page of Basic Operations in List")
 	public void the_user_is_on_the_try_editor_page_of_basic_operations_in_list() {
 		arraysdocpage.click_BasicOpertaionList();
-		 arraysdocpage.click_TryHere();
-		}
+		arraysdocpage.click_TryHere();
+	}
 
 	@When("User writes Python code for Arrays from given sheetname {string} rownumber {int} and columnumber {int}")
-	public void user_writes_python_code_for_arrays_from_given_sheetname_rownumber_and_columnumber(String sheetname, Integer rownumber, Integer columnumber) throws InterruptedException 
-	{
+	public void user_writes_python_code_for_arrays_from_given_sheetname_rownumber_and_columnumber(String sheetname,
+			Integer rownumber, Integer columnumber) throws InterruptedException {
 		String python_code = ExcelReader.getExcelValue(sheetname, rownumber, columnumber);
 		System.out.println("First");
 		arraysdocpage.getPythonCode_from_excel(python_code);
@@ -293,27 +291,21 @@ public class ArraysDocPageStepDefination {
 
 	@Then("User gets output in the output panel under Basic Operations in List")
 	public void user_gets_output_in_the_output_panel_under_basic_operations_in_list() {
-		 runpythoncode.Ouptput_ValidCode();
+		runpythoncode.Ouptput_ValidCode();
 	}
 
 	@Given("The user is on the Try Editor page of Arrays")
 	public void the_user_is_on_the_try_editor_page_of_arrays() {
 		arraysdocpage.click_BasicOpertaionList();
 		arraysdocpage.click_TryHere();
-		
-		
+
 	}
 
 	@Then("The user gets error pop up box of Arrays Page")
 	public void the_user_gets_error_pop_up_box_of_arrays_page() {
 		runpythoncode.error_alert();
 	}
-	/*@Given("The User is on the Try Editor page of Basic operations in List")
-	public void the_user_is_on_the_try_editor_page_of_basic_operations_in_list() {
-	    // Write code here that turns the phrase above into concrete actions
-	    throw new io.cucumber.java.PendingException();
-	}*/
-
+	
 	@When("The user clicks on the back arrow of Basic operations in List")
 	public void the_user_clicks_on_the_back_arrow_of_basic_operations_in_list() {
 		arraysdocpage.goback_frmTryeditor();
@@ -335,29 +327,28 @@ public class ArraysDocPageStepDefination {
 
 	@Given("The user is on the Arrays page after logged in")
 	public void the_user_is_on_the_arrays_page_after_logged_in() {
-		 String actual_title=landingpage.get_Title();
-			String expected_title="Array";
-			assertEquals(expected_title,actual_title);
-			System.out.println("User is on the" +expected_title+ "page");
+		String actual_title = landingpage.get_Title();
+		String expected_title = "Array";
+		assertEquals(expected_title, actual_title);
+		System.out.println("User is on the" + expected_title + "page");
 	}
-
 
 	@When("The user clicks Applications of Array link present under topics covered")
 	public void the_user_clicks_applications_of_array_link_present_under_topics_covered() {
-	    arraysdocpage.clickApplicationofArray();
+		arraysdocpage.clickApplicationofArray();
 	}
 
 	@Then("The user should be directed to Applications of Array Page")
 	public void the_user_should_be_directed_to_applications_of_array_page() {
 		String actual_title = landingpage.get_Title();
-		String expected_title="Applications of Array";
-		assertEquals(expected_title,actual_title);
-		System.out.println("User is on the" +expected_title+ "page");
+		String expected_title = "Applications of Array";
+		assertEquals(expected_title, actual_title);
+		System.out.println("User is on the" + expected_title + "page");
 	}
 
 	@Given("The user is on the Applications of Array page")
 	public void the_user_is_on_the_applications_of_array_page() {
-	    arraysdocpage.clickApplicationofArray();
+		arraysdocpage.clickApplicationofArray();
 	}
 
 	@When("The User clicks Try Here button of Applications of Array page")
@@ -371,24 +362,23 @@ public class ArraysDocPageStepDefination {
 		String actual_tit = landingpage.get_Title();
 		String Expected_tit = "Assessment";
 		assertEquals(Expected_tit, actual_tit);
-		System.out.println("User is on the " + actual_tit + " Page of Applicatoons of Array section"); 
+		System.out.println("User is on the " + actual_tit + " Page of Applicatoons of Array section");
 	}
-
 
 	@Given("The user is on the Try Editor page of Array")
 	public void the_user_is_on_the_try_editor_page_of_array() {
-		
+
 		arraysdocpage.click_BasicOpertaionList();
 		arraysdocpage.click_TryHere();
 	}
 
 	@When("User writes Python code for Array given sheetname {string} rownumber {int} and columnumber {int}")
-	public void user_writes_python_code_for_array_given_sheetname_rownumber_and_columnumber(String sheetname, Integer rownumber, Integer columnumber) throws InterruptedException 
-	{
+	public void user_writes_python_code_for_array_given_sheetname_rownumber_and_columnumber(String sheetname,
+			Integer rownumber, Integer columnumber) throws InterruptedException {
 		String python_code = ExcelReader.getExcelValue(sheetname, rownumber, columnumber);
 		System.out.println("First");
-		arraysdocpage.getPythonCode_from_excel(python_code); 
-	    
+		arraysdocpage.getPythonCode_from_excel(python_code);
+
 	}
 
 	@When("User click on Run button on Array page")
@@ -401,12 +391,10 @@ public class ArraysDocPageStepDefination {
 		runpythoncode.Ouptput_ValidCode();
 	}
 
-
 	@When("User click on Run button on Arrays page")
 	public void user_click_on_run_button_on_arrays_page() {
 		runpythoncode.run_button();
 	}
-
 
 	@Given("The User is on the Try Editor page of Applications of Array")
 	public void the_user_is_on_the_try_editor_page_of_applications_of_array() {
@@ -422,10 +410,11 @@ public class ArraysDocPageStepDefination {
 	@Then("It should redirect to of Applications of Arrays")
 	public void it_should_redirect_to_of_applications_of_arrays() {
 		String actual_title = landingpage.get_Title();
-		String expected_title="Applications of Array";
-		assertEquals(expected_title,actual_title);
-		System.out.println("User is on the" +expected_title+ "page");
+		String expected_title = "Applications of Array";
+		assertEquals(expected_title, actual_title);
+		System.out.println("User is on the" + expected_title + "page");
 	}
+
 	@Given("Navigated to any topics of the Arrays page -Applications of Arrays")
 	public void navigated_to_any_topics_of_the_arrays_page_applications_of_arrays() {
 		arraysdocpage.clickApplicationofArray();
@@ -444,14 +433,13 @@ public class ArraysDocPageStepDefination {
 		System.out.println("User navigated to " + actual_tit);
 	}
 
-
 	@Given("The user is in the Arrays page after loggedin")
 	public void the_user_is_in_the_arrays_page_after_loggedin() {
-		String actual_title=landingpage.get_Title();
-		String expected_title="Array";
-		assertEquals(expected_title,actual_title);
-		System.out.println("User is on the" +expected_title+ "page");
-	    
+		String actual_title = landingpage.get_Title();
+		String expected_title = "Array";
+		assertEquals(expected_title, actual_title);
+		System.out.println("User is on the" + expected_title + "page");
+
 	}
 
 	@Given("Navigated to any topics of the Linked list page -Applications of Arrays")
@@ -462,13 +450,14 @@ public class ArraysDocPageStepDefination {
 	@When("The user clicks Practice Questions of Arrays")
 	public void the_user_clicks_practice_questions_of_arrays() {
 		arraysdocpage.click_PracticeQuestion();
-	    
+
 	}
 
 	@Then("Sets of practice questions should be available on the Arrays")
 	public void sets_of_practice_questions_should_be_available_on_the_arrays() {
 		arraysdocpage.is_practiceQuestion_Displayed();
 	}
+
 	@Given("The user is on the practice questions of Array page")
 	public void navigated_to_practice_questions() {
 		arraysdocpage.clickApplicationofArray();
@@ -478,14 +467,16 @@ public class ArraysDocPageStepDefination {
 	@When("The user clicks on the Search the arrays")
 	public void the_user_clicks_on_search_the_arrays() {
 		arraysdocpage.click_SearchTheArray();
-	    
+
 	}
+
 	@Then("Search the arrays Question Page should be open")
 	public void search_the_arrays_question_page_should_be_open() {
-	    String actualt_title=landingpage.get_Title();
-	    String expected_title="Assessment";
-	    assertEquals(expected_title,actualt_title);
+		String actualt_title = landingpage.get_Title();
+		String expected_title = "Assessment";
+		assertEquals(expected_title, actualt_title);
 	}
+
 	@Then("User gets output in the output panel of Array Page")
 	public void user_gets_output_in_the_output_panel_of_array_page() {
 		arraysdocpage.showoutput();
@@ -498,52 +489,49 @@ public class ArraysDocPageStepDefination {
 		arraysdocpage.click_PracticeQuestion();
 		arraysdocpage.click_SearchTheArray();
 	}
+
 	@When("The user clicks on the Max Consecutive Ones")
 	public void the_user_clicks_on_max_consecutive_ones() {
 		arraysdocpage.click_MaxConsecutiveOnes();
-	    
+
 	}
+
 	@Given("The user is on the Max Consecutive Ones page")
 	public void user_is_on_the_max_consecutive_ones_page() {
 		arraysdocpage.clickApplicationofArray();
 		arraysdocpage.click_PracticeQuestion();
 		arraysdocpage.click_MaxConsecutiveOnes();
 	}
+
 	@When("The user clicks on the Find Numbers with Even Number of Digits")
 	public void the_user_clicks_on_findNumberswithEvenNumberOfDigits() {
 		arraysdocpage.click_FindNumberswithEvenNumberOfDigits();
-	    
+
 	}
+
 	@Given("The user is on the Find Numbers with Even Number of Digits page")
 	public void user_is_on_the_findNumberswithEvenNumberOfDigits_page() {
 		arraysdocpage.clickApplicationofArray();
 		arraysdocpage.click_PracticeQuestion();
 		arraysdocpage.click_FindNumberswithEvenNumberOfDigits();
 	}
+
 	@When("The user clicks on the Squares of a Sorted Array")
 	public void the_user_clicks_on_SquaresOf_a_Sorted_Array() {
 		arraysdocpage.click_SquaresOfASortedArray();
-	    
+
 	}
+
 	@Given("The user is on the Squares of a Sorted Array page")
 	public void user_is_on_the_SquaresOf_a_Sorted_Array_page() {
 		arraysdocpage.clickApplicationofArray();
 		arraysdocpage.click_PracticeQuestion();
 		arraysdocpage.click_SquaresOfASortedArray();
 	}
+
 	@Then("User gets error popup of Array Page")
-	public void user_gets_error_alert_popup_of_array_page()  {
+	public void user_gets_error_alert_popup_of_array_page() {
 		arraysdocpage.popUp();
 	}
-	
-	
-		
-	
-	
+
 }
-    
-
-
-
-
-

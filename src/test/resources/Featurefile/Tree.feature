@@ -116,24 +116,6 @@ Feature: Validate Tree module features
     And Click on Run button under Terminologies section
     Then User sees output in the output panel under Terminologies section
 
-  #@Tree
-  #Scenario: Verify running an invalid python code gives an error
-    #Given User is already on the Try Editor page under Terminologies section
-    #When The user writes invalid Python code under Terminologies section
-    #And Click on Run button to run invalid code under Terminologies section
-    #Then User gets error alert box under Terminologies section
-#
-  #@Tree
-  #Scenario: Go back to Terminologies page from Try Try Editor page
-    #Given User is on the Try Eiotr page of Terminologies section
-    #When User clicks on the back arrow under Terminologies section
-    #Then It should redirect to Terminologies page
-    #And Topics covered section is displayed on the left under Terminologies section
-
-    #When The user writes Python code from given sheetname "Sheet4" rownumber 1 and columnumber 1
-    #And Click on Run button
-    #Then User sees output in the output panel under Terminologies section
-
   @Tree
   Scenario: Verify running an invalid python code gives an error
     Given User is already on the Try Editor page under Terminologies section
