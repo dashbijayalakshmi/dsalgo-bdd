@@ -33,74 +33,63 @@ public class Hooks {
 	Signinpageobjects signinpage;
 	static DriverFactory driverfactorypage;
 	ConfigReader configreaderfile;
-	
-	public Hooks(TestContextSetup testcontextsetup) {
-		this.testcontextsetup=testcontextsetup;
-		this.landingpage=testcontextsetup.pageobjectmanager.getLandingpageobjects();
-		this.signinpage=testcontextsetup.pageobjectmanager.getSigninpageobjects();
-		this.driverfactorypage=testcontextsetup.pageobjectmanager.getdriverfactory();
-		this.configreaderfile=testcontextsetup.pageobjectmanager.getconfigreaderfile();
-	}
-	private By getStarted=By.linkText("Get Started");
-		
-	static WebDriver driver;
-	
-	static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(DriverFactory.class);
-	
-	//For Cross-browser Testing
-	 
-	@Before(order=0)
-		public void before() throws Throwable 
-	 	{
-			//Get browser Type from config file
-			logger.info("Loading Config file");
-			String browser = ConfigReader.getBrowserType();		
-			//Initialize driver from driver factory
-			driverfactorypage = new DriverFactory();
-			driver = driverfactorypage.getdriver();
-			logger.info("Initializing driver for : "+browser);		
-		}
-	 
-	//Get URL and Click on Get started button
 
-	 @Before(order=1)	
-		 public void before1() throws IOException
-		 {	
-			FileInputStream fis=new FileInputStream(System.getProperty("user.dir")+"/src/test/resources/global.properties");
-			Properties prop=new Properties();
-			prop.load(fis);
-			String url=prop.getProperty("URL"); 
-			driver.get(url);
-			driver.findElement(getStarted).click();
-		 }
-	 @After
+	public Hooks(TestContextSetup testcontextsetup) {
+		this.testcontextsetup = testcontextsetup;
+		this.landingpage = testcontextsetup.pageobjectmanager.getLandingpageobjects();
+		this.signinpage = testcontextsetup.pageobjectmanager.getSigninpageobjects();
+		this.driverfactorypage = testcontextsetup.pageobjectmanager.getdriverfactory();
+		this.configreaderfile = testcontextsetup.pageobjectmanager.getconfigreaderfile();
+	}
+
+	private By getStarted = By.linkText("Get Started");
+
+	static WebDriver driver;
+
+	static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(DriverFactory.class);
+
+	// For Cross-browser Testing
+
+	@Before(order = 0)
+	public void before() throws Throwable {
+		// Get browser Type from config file
+		logger.info("Loading Config file");
+		String browser = ConfigReader.getBrowserType();
+		// Initialize driver from driver factory
+		driverfactorypage = new DriverFactory();
+		driver = driverfactorypage.getdriver();
+		logger.info("Initializing driver for : " + browser);
+	}
+
+	// Get URL and Click on Get started button
+
+	@Before(order = 1)
+	public void before1() throws IOException {
+		FileInputStream fis = new FileInputStream(
+				System.getProperty("user.dir") + "/src/test/resources/global.properties");
+		Properties prop = new Properties();
+		prop.load(fis);
+		String url = prop.getProperty("URL");
+		driver.get(url);
+		driver.findElement(getStarted).click();
+	}
+
+	@After
 	public void AfterScenario(Scenario scenario) throws IOException {
-		
-		if(scenario.isFailed()) {
-			byte[] screenshot=((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
-			Allure.addAttachment("Failed Screenshot",new ByteArrayInputStream(screenshot));
+
+		if (scenario.isFailed()) {
+			byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+			Allure.addAttachment("Failed Screenshot", new ByteArrayInputStream(screenshot));
 		}
 		driver.quit();
 	}
+
 	@AfterStep
 	public void AddScreenShot(Scenario scenario) throws IOException {
-		if(scenario.isFailed()) 
-		{
-			File sourcepath=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-			byte[] fileContent=FileUtils.readFileToByteArray(sourcepath);
+		if (scenario.isFailed()) {
+			File sourcepath = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+			byte[] fileContent = FileUtils.readFileToByteArray(sourcepath);
 			scenario.attach(fileContent, "image/png", "image");
 		}
 	}
 }
-//	@AfterStep
-//	public void AddScreenShot(Scenario scenario) throws IOException {
-//		WebDriver driver=testcontextsetup.testbase.WebDriverManager();
-//		if(scenario.isFailed()) {
-//			File sourcepath=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-//			byte[] fileContent=FileUtils.readFileToByteArray(sourcepath);
-//			scenario.attach(fileContent, "image/png", "image");
-//		}
-//	}
-
-
-
